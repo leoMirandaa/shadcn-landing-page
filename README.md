@@ -1,8 +1,10 @@
-# ShadcnUI/React
+# Shadcn/UI Landing Page Template
 
-## React template with Shadcn, Tailwind and Typescript setup.
+## <a href="https://ui.shadcn.com/" target="_blank">ShadcnUI</a> + <a href="https://react.dev/" target="_blank">React</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
 
-Build your React landing page effortlessly with the required sections to your project using <a href="https://ui.shadcn.com/" target="_blank">"ShadcnUI"</a> and <a href="https://react.dev/" target="_blank">"React"</a>.
+![shadch-landing-page](https://github.com/leoMirandaa/shadcn-landing-page/assets/61714687/3ba7b51f-9589-4541-800a-5ab7cecad1b5)
+
+Build your React landing page effortlessly with the required sections to your project.
 
 ## Sections
 
