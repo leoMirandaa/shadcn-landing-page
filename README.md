@@ -4,44 +4,46 @@
 
 ![shadch-landing-page](https://github.com/leoMirandaa/shadcn-landing-page/assets/61714687/3ba7b51f-9589-4541-800a-5ab7cecad1b5)
 
-Build your React landing page effortlessly with the required sections to your project.
+Build your React landing page effortlessly with the required sections to your project. <a href="https://shadcn-landing-page.vercel.app/" target="_blank">Live Demo</a>
 
 ## Sections
 
-- Navbar
-- Sidebar(mobile)
-- Hero
-- Sponsors
-- How It Works
-- Stats
-- Features
-- Services
-- Call-to-Action (CTA)
-- Testimonials
-- Pricing
-- Newsletter Signup
-- Frequently Asked Questions(FAQ)
-- Footer
+- [x] Navbar
+- [x] Sidebar(mobile)
+- [x] Hero
+- [x] Sponsors
+- [x] About
+- [x] Stats
+- [x] How It Works
+- [x] Features
+- [x] Services
+- [x] Call-to-Action (CTA)
+- [x] Testimonials
+- [x] Team
+- [x] Pricing
+- [x] Newsletter
+- [x] Frequently Asked Questions(FAQ)
+- [x] Footer
 
 ## Features
 
-- Fully Responsive Design
-- User Friendly Navigation
-- Dark Mode
-- Metatags
+- [x] Fully Responsive Design
+- [x] User Friendly Navigation
+- [x] Dark Mode
+- [x] Metatags
 
 ## How to install
 
 1. Clone this repositoy:
 
 ```bash
-git clone https://github.com/
+git clone https://github.com/leoMirandaa/shadcn-landing-page.git
 ```
 
 2. Go into project
 
 ```bash
-cd shadcn-react-landing-template
+cd shadcn-landing-page
 ```
 
 3. Install dependencies
