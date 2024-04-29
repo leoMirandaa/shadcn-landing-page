@@ -32,6 +32,7 @@ export const Hero = () => {
           <Button className="w-full md:w-1/3">Get Started</Button>
 
           <a
+            rel="noreferrer noopener"
             href="https://github.com/leoMirandaa/shadcn-landing-page.git"
             target="_blank"
             className={`w-full md:w-1/3 ${buttonVariants({
