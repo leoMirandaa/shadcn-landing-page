@@ -33,7 +33,7 @@ export const HeroCards = () => {
           </div>
         </CardHeader>
 
-        <CardContent>This landig page is awesome!</CardContent>
+        <CardContent>This landing page is awesome!</CardContent>
       </Card>
 
       {/* Team */}
