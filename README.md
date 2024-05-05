@@ -30,11 +30,11 @@ Build your React landing page effortlessly with the required sections to your pr
 - [x] Fully Responsive Design
 - [x] User Friendly Navigation
 - [x] Dark Mode
-- [x] Metatags
+- [x] Meta tags
 
 ## How to install
 
-1. Clone this repositoy:
+1. Clone this repository:
 
 ```bash
 git clone https://github.com/leoMirandaa/shadcn-landing-page.git
