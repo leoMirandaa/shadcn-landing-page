@@ -50,6 +50,7 @@ export const Navbar = () => {
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold flex">
             <a
+              rel="noreferrer noopener"
               href="/"
               className="ml-2 font-bold text-xl flex"
             >
@@ -84,6 +85,7 @@ export const Navbar = () => {
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                   {routeList.map(({ href, label }: RouteProps) => (
                     <a
+                      rel="noreferrer noopener"
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
@@ -93,6 +95,7 @@ export const Navbar = () => {
                     </a>
                   ))}
                   <a
+                    rel="noreferrer noopener"
                     href="https://github.com/leoMirandaa/shadcn-landing-page.git"
                     target="_blank"
                     className={`w-[110px] border ${buttonVariants({
@@ -111,6 +114,7 @@ export const Navbar = () => {
           <nav className="hidden md:flex gap-2">
             {routeList.map((route: RouteProps, i) => (
               <a
+                rel="noreferrer noopener"
                 href={route.href}
                 key={i}
                 className={`text-[17px] ${buttonVariants({
@@ -124,6 +128,7 @@ export const Navbar = () => {
 
           <div className="hidden md:flex gap-2">
             <a
+              rel="noreferrer noopener"
               href="https://github.com/leoMirandaa/shadcn-landing-page.git"
               target="_blank"
               className={`border ${buttonVariants({ variant: "secondary" })}`}

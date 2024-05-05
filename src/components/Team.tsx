@@ -139,6 +139,7 @@ export const Team = () => {
                 {socialNetworks.map(({ name, url }: SociaNetworkslProps) => (
                   <div key={name}>
                     <a
+                      rel="noreferrer noopener"
                       href={url}
                       target="_blank"
                       className={buttonVariants({

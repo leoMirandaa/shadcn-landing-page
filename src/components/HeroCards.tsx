@@ -60,6 +60,7 @@ export const HeroCards = () => {
         <CardFooter>
           <div>
             <a
+              rel="noreferrer noopener"
               href="https://github.com/leoMirandaa"
               target="_blank"
               className={buttonVariants({
@@ -71,6 +72,7 @@ export const HeroCards = () => {
               <GitHubLogoIcon className="w-5 h-5" />
             </a>
             <a
+              rel="noreferrer noopener"
               href="https://twitter.com/leo_mirand4"
               target="_blank"
               className={buttonVariants({
@@ -91,6 +93,7 @@ export const HeroCards = () => {
             </a>
 
             <a
+              rel="noreferrer noopener"
               href="https://www.linkedin.com/"
               target="_blank"
               className={buttonVariants({
