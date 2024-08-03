@@ -27,7 +27,10 @@ const teamList: TeamProps[] = [
     name: "Emma Smith",
     position: "Product Manager",
     socialNetworks: [
-      { name: "Linkedin", url: "http://linkedin.com" },
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+      },
       {
         name: "Facebook",
         url: "https://www.facebook.com/",
@@ -43,7 +46,10 @@ const teamList: TeamProps[] = [
     name: "John Doe",
     position: "Tech Lead",
     socialNetworks: [
-      { name: "Linkedin", url: "http://linkedin.com" },
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+      },
       {
         name: "Facebook",
         url: "https://www.facebook.com/",
@@ -59,7 +65,10 @@ const teamList: TeamProps[] = [
     name: "Ashley Ross",
     position: "Frontend Developer",
     socialNetworks: [
-      { name: "Linkedin", url: "http://linkedin.com" },
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+      },
 
       {
         name: "Instagram",
@@ -72,7 +81,10 @@ const teamList: TeamProps[] = [
     name: "Bruce Rogers",
     position: "Backend Developer",
     socialNetworks: [
-      { name: "Linkedin", url: "http://linkedin.com" },
+      {
+        name: "Linkedin",
+        url: "https://www.linkedin.com/in/leopoldo-miranda/",
+      },
       {
         name: "Facebook",
         url: "https://www.facebook.com/",

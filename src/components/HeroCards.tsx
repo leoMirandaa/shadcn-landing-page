@@ -94,7 +94,7 @@ export const HeroCards = () => {
 
             <a
               rel="noreferrer noopener"
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/leopoldo-miranda/"
               target="_blank"
               className={buttonVariants({
                 variant: "ghost",
