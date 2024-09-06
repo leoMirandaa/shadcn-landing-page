@@ -18,7 +18,8 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    // Set dark theme as default
+    // Set light theme as default
+    document.documentElement.classList.remove('dark');
     document.documentElement.classList.add('light');
   }, []);
 
