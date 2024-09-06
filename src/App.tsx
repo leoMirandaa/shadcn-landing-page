@@ -12,8 +12,14 @@ import { Services } from "./components/Services";
 import { Team } from "./components/Team";
 import { Testimonials } from "./components/Testimonials";
 import "./App.css";
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    // Set dark theme as default
+    document.documentElement.classList.add('light');
+  }, []);
+
   return (
     <div className="mx-auto max-w-screen-lg">
       <Navbar />
