@@ -69,7 +69,7 @@ export const Navbar = () => {
               onOpenChange={setIsOpen}
             >
               <SheetTrigger asChild>
-                <Button variant="default" size="icon" className="px-2">
+                <Button variant="outline" size="icon" className="px-2">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Menu Icon</span>
                 </Button>
@@ -85,9 +85,9 @@ export const Navbar = () => {
                   {routeList.map(({ href, label }: RouteProps) => (
                     <Button
                       key={label}
-                      variant="default"
+                      variant={label === "Live Map 🗺️" ? "default" : "outline"}
                       asChild
-                    className="w-full"
+                      className="w-full"
                     >
                       <a
                         rel="noreferrer noopener"
@@ -108,7 +108,7 @@ export const Navbar = () => {
             {routeList.map((route: RouteProps, i) => (
               <Button
                 key={i}
-                variant="default"
+                variant={route.label === "Live Map 🗺️" ? "default" : "outline"}
                 asChild
               >
                 <a

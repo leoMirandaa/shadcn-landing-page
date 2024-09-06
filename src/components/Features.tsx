@@ -9,6 +9,7 @@ import {
 import image from "../assets/growth.png";
 import image3 from "../assets/reflecting.png";
 import image4 from "../assets/looking-ahead.png";
+import OrbitingCircles from "@/components/magicui/orbiting-circles";
 
 interface FeatureProps {
   title: string;
@@ -54,8 +55,94 @@ export const Features = () => {
   return (
     <section
       id="features"
-      className="container py-24 sm:py-32 space-y-8"
+      className="container py-24 sm:py-32 space-y-8 relative"
     >
+      {/* Adding the orbiting circles */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[-1]">
+        <div className="relative w-[600px] h-[600px]">
+          <OrbitingCircles
+            reverse={false}
+            duration={60}
+            delay={9}
+            radius={600}
+            path={true}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={true}
+            duration={35}
+            delay={1}
+            radius={300}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center">👮‍♂️</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={true}
+            duration={120}
+            delay={8}
+            radius={700}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={true}
+            duration={90}
+            delay={5}
+            radius={450}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={false}
+            duration={60}
+            delay={15}
+            radius={325}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={true}
+            duration={35}
+            delay={10}
+            radius={300}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={false}
+            duration={120}
+            delay={2}
+            radius={425}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+          </OrbitingCircles>
+          <OrbitingCircles
+            reverse={true}
+            duration={90}
+            delay={12}
+            radius={615}
+            path={false}
+            className="bg-transparent border-none"
+          >
+            <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+          </OrbitingCircles>
+        </div>
+      </div>
+
       <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
         Many Great Features
       </h2>

@@ -24,7 +24,7 @@ export const Hero = () => {
               path={true}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -34,17 +34,17 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">👮‍♂️</span>
+              <span className="text-4xl border-white border-2 bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center">👮‍♂️</span>
             </OrbitingCircles>
             <OrbitingCircles
-              reverse={false}
+              reverse={true}
               duration={120}
               delay={8}
               radius={700}
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -54,7 +54,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -64,7 +64,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -74,7 +74,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -84,7 +84,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -94,7 +94,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
             </OrbitingCircles>
           </div>
         </div>
