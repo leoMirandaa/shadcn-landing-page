@@ -103,8 +103,8 @@ export const Hero = () => {
           
           <Card className="text-center space-y-6 p-6 w-full lg:text-start lg:order-1 lg:pr-12 shadow-xl px-0">
             <CardHeader>
-              <CardTitle className="text-5xl md:text-5xl sm:text-2xl font-black mb-4">
-                Predicting and Preventing Crime using Whatsapp<img src="https://img.icons8.com/?size=100&id=d5ntEsf0JRhM&format=png&color=000000" alt="WhatsApp icon" className="inline-block w-20 h-20 ml-2" />
+              <CardTitle className="text-6xl md:text-6xl sm:text-2xl font-black mb-4">
+                The Only Service Asking You to Cry Wolf 🐺
               </CardTitle>
               <CardDescription>
                 <p className="mb-4">
