@@ -19,21 +19,21 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    title: "Responsive Design",
+    title: "Responsive Design 📱",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Our app adapts seamlessly to any device, ensuring a smooth experience whether you're on mobile, tablet, or desktop.",
     image: image4,
   },
   {
-    title: "Intuitive user interface",
+    title: "Intuitive User Interface 🖱️",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Navigate with ease through our user-friendly interface, designed for quick access to critical safety information.",
     image: image3,
   },
   {
-    title: "AI-Powered insights",
+    title: "AI-Powered Insights 🤖",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+      "Leverage cutting-edge artificial intelligence to analyze patterns and predict potential safety concerns in your area.",
     image: image,
   },
 ];
@@ -142,27 +142,31 @@ export const Features = () => {
           </OrbitingCircles>
         </div>
       </div>
-
-      <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-        Many Great Features
-      </h2>
-
-      <div className="flex flex-wrap md:justify-center gap-4">
-        {featureList.map((feature: string) => (
-          <div key={feature}>
-            <Badge
-              variant="default"
-              className="text-sm bg-black text-white rounded-xl"
-            >
-              {feature}
-            </Badge>
+      <Card className="p-6 shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-3xl lg:text-4xl font-bold md:text-center">
+            Features to keep you safe 🐺
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap md:justify-center gap-4">
+            {featureList.map((feature: string) => (
+              <div key={feature}>
+                <Badge
+                  variant="default"
+                  className="text-sm bg-black text-white rounded-xl"
+                >
+                  {feature}
+                </Badge>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </CardContent>
+      </Card>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map(({ title, description, image }: FeatureProps) => (
-          <Card key={title}>
+          <Card key={title} className="shadow-xl">
             <CardHeader>
               <CardTitle>{title}</CardTitle>
             </CardHeader>

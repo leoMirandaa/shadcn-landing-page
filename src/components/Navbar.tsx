@@ -22,21 +22,25 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
-    label: "Features ✨",
+    href: "#about",
+    label: "About 🐺",
   },
-  {
-    href: "#testimonials",
-    label: "Testimonials 💬",
-  },
-  {
-    href: "#pricing",
-    label: "Pricing 💰",
-  },
-  {
-    href: "#faq",
-    label: "FAQ ❓",
-  },
+  // {
+  //   href: "#features",
+  //   label: "Features ✨",
+  // },
+  // // {
+  // //   href: "#testimonials",
+  // //   label: "Testimonials 💬",
+  // // },
+  // // {
+  // //   href: "#pricing",
+  // //   label: "Pricing 💰",
+  // // },
+  // {
+  //   href: "#faq",
+  //   label: "FAQ ❓",
+  // },
   {
     href: "https://wolfpack-seven.vercel.app/", // Replace with actual URL
     label: "Live Map 🗺️",
@@ -46,16 +50,15 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <header className="top-0 z-40 w-full">
+    <header className="top-0 z-40 w-full mt-4">
       <NavigationMenu className="mx-auto">
-        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
+        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between">
           <NavigationMenuItem className="font-bold flex">
             <a
               rel="noreferrer noopener"
               href="/"
               className="ml-2 font-black text-2xl flex"
             >
-              {/* <LogoIcon /> */}
               Wolf 🐺
             </a>
           </NavigationMenuItem>
@@ -114,7 +117,7 @@ export const Navbar = () => {
                 <a
                   rel="noreferrer noopener"
                   href={route.href}
-                  className="text-[17px]"
+                  className="text-[17px] shadow-xl"
                 >
                   {route.label}
                 </a>

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface FAQProps {
   question: string;
@@ -50,19 +51,23 @@ export const FAQ = () => {
       id="faq"
       className="container py-24 sm:py-32"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Frequently Asked Questions
-      </h2>
+      <Card className="shadow-xl">
+        <CardContent className="px-6 py-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked Questions 🐺
+          </h2>
 
-      {/* Using the Accordion component from shadcn/ui with white background */}
-      <Accordion type="single" collapsible className="w-full bg-white rounded-lg">
-        {FAQList.map(({ question, answer, value }: FAQProps) => (
-          <AccordionItem key={value} value={value} className="border-b">
-            <AccordionTrigger className="py-4 px-6">{question}</AccordionTrigger>
-            <AccordionContent className="py-4 px-6">{answer}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+          {/* Using the Accordion component from shadcn/ui */}
+          <Accordion type="single" collapsible className="w-full">
+            {FAQList.map(({ question, answer, value }: FAQProps) => (
+              <AccordionItem key={value} value={value} className="border-b">
+                <AccordionTrigger className="py-4 px-6">{question}</AccordionTrigger>
+                <AccordionContent className="py-4 px-6">{answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </CardContent>
+      </Card>
 
     </section>
   );

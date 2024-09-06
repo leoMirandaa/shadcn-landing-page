@@ -30,9 +30,9 @@ function App() {
         <Features />
         <Services />
         <Cta />
-        <Testimonials />
-        <Team />
-        <Pricing />
+        {/* <Testimonials /> */}
+        {/* <Team /> */}
+        {/* <Pricing /> */}
         {/* <Newsletter /> */}
         <FAQ />
         <Footer />

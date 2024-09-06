@@ -24,17 +24,17 @@ export const Hero = () => {
               path={true}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
-              reverse={false}
+              reverse={true}
               duration={35}
               delay={1}
               radius={300}
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center">👮‍♂️</span>
+              <span className="text-4xl border-white border-2 bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">👮‍♂️</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={true}
@@ -44,7 +44,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -54,17 +54,17 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center">🚨</span>
+              <span className="text-4xl border-white border-2 bg-red-500 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🚨</span>
             </OrbitingCircles>
             <OrbitingCircles
-              reverse={false}
+              reverse={true}
               duration={60}
               delay={15}
               radius={325}
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -74,17 +74,17 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
-              reverse={false}
+              reverse={true}
               duration={120}
               delay={2}
               radius={425}
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🐺</span>
             </OrbitingCircles>
             <OrbitingCircles
               reverse={false}
@@ -94,7 +94,7 @@ export const Hero = () => {
               path={false}
               className="bg-transparent border-none"
             >
-              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center">🐺</span>
+              <span className="text-4xl border-white border-2 bg-zinc-900 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">🐺</span>
             </OrbitingCircles>
           </div>
         </div>
@@ -104,18 +104,30 @@ export const Hero = () => {
           <Card className="text-center space-y-6 p-6 w-full lg:text-start lg:order-1 lg:pr-12 shadow-xl px-0">
             <CardHeader>
               <CardTitle className="text-5xl md:text-5xl sm:text-2xl font-black mb-4">
-                Predicting and Preventing Crime with Community Data 🔍
+                Predicting and Preventing Crime using Whatsapp<img src="https://img.icons8.com/?size=100&id=d5ntEsf0JRhM&format=png&color=000000" alt="WhatsApp icon" className="inline-block w-20 h-20 ml-2" />
               </CardTitle>
               <CardDescription>
-                Wolf is a personal safety network that empowers you to protect yourself and the people and places you care about. Wolf enables its followers to be more situationally aware. 🐺
+                <p className="mb-4">
+                  Wolf is an advanced personal safety network that empowers you to protect yourself, your loved ones, and your community. By leveraging real-time data and community reports, Wolf enhances your situational awareness, helping you make informed decisions about your safety.
+                </p>
+                <p>
+                  Contribute to community safety effortlessly by submitting anonymous reports through WhatsApp or our user-friendly webapp. Join the Wolf pack and be part of a proactive approach to crime prevention and personal security. 🐺
+                </p>
               </CardDescription>
             </CardHeader>
             <CardFooter>
               <Button 
-              variant="default" className="">See Live Map 🗺️</Button>
+              variant="default" 
+              className=""
+              onClick={() => window.open('https://wolfpack-seven.vercel.app/', '_blank')}
+              >
+                See Live Map 🗺️
+              </Button>
               <Button 
               variant="outline" 
-              className="ml-4">
+              className="ml-4"
+              onClick={() => window.location.href = '#faq'}
+              >
                 Learn More 📚
               </Button>
             </CardFooter>
