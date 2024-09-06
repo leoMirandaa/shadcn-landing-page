@@ -1,13 +1,13 @@
 import { Button } from "./ui/button";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card"
 import OrbitingCircles from "@/components/magicui/orbiting-circles"
 
 export const Hero = () => {
   return (
     <>
       <div 
-        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat opacity-50"
+        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat opacity-900"
         style={{
           backgroundImage: "url('https://res.cloudinary.com/dkbn21xdu/image/upload/v1725627216/Screenshot_2024-09-06_at_13.53.30_lh6hl5.png')"
         }}
@@ -50,7 +50,7 @@ export const Hero = () => {
               reverse={false}
               duration={90}
               delay={5}
-              radius={900}
+              radius={450}
               path={false}
               className="bg-transparent border-none"
             >
@@ -60,7 +60,7 @@ export const Hero = () => {
               reverse={false}
               duration={60}
               delay={15}
-              radius={600}
+              radius={325}
               path={false}
               className="bg-transparent border-none"
             >
@@ -80,7 +80,7 @@ export const Hero = () => {
               reverse={false}
               duration={120}
               delay={2}
-              radius={700}
+              radius={425}
               path={false}
               className="bg-transparent border-none"
             >
@@ -90,7 +90,7 @@ export const Hero = () => {
               reverse={false}
               duration={90}
               delay={12}
-              radius={900}
+              radius={615}
               path={false}
               className="bg-transparent border-none"
             >

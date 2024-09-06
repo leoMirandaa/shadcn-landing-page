@@ -6,7 +6,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="container py-24 sm:py-32"
+      className="container py-24 sm:py-32 z-20"
     >
       <Card className="shadow-xl">
         <CardContent className="px-6 py-12 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
@@ -18,8 +18,8 @@ export const About = () => {
           <div className="flex flex-col justify-between">
             <div className="pb-6">
               <CardHeader>
-                <CardTitle className="text-3xl md:text-4xl font-bold">
-                  About Wolf 🐺
+                <CardTitle className="text-3xl md:text-4xl text-left font-bold">
+                  Why we want everyone to be a Wolf 🐺
                 </CardTitle>
               </CardHeader>
               <CardDescription className="text-xl text-muted-foreground mt-4">

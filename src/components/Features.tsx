@@ -38,15 +38,16 @@ const features: FeatureProps[] = [
 ];
 
 const featureList: string[] = [
-  "Dark/Light theme",
-  "Reviews",
-  "Features",
-  "Pricing",
-  "Contact form",
-  "Our team",
-  "Responsive design",
-  "Newsletter",
-  "Minimalist",
+  "Real-time community insights 🔍",
+  "Anonymous witness reporting 🕵️",
+  "Incident prevention and resolution 🛡️",
+  "Situational awareness updates 🚨",
+  "Smart routing of information 🧠",
+  "Machine learning threat analysis 🤖",
+  "WhatsApp integration 📱",
+  "Voice note reporting 🎙️",
+  "Predictive crime prevention 🔮",
+  "Community-powered safety network 🤝",
 ];
 
 export const Features = () => {
@@ -56,18 +57,15 @@ export const Features = () => {
       className="container py-24 sm:py-32 space-y-8"
     >
       <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-        Many{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Great Features
-        </span>
+        Many Great Features
       </h2>
 
       <div className="flex flex-wrap md:justify-center gap-4">
         {featureList.map((feature: string) => (
           <div key={feature}>
             <Badge
-              variant="secondary"
-              className="text-sm"
+              variant="default"
+              className="text-sm bg-black text-white rounded-xl"
             >
               {feature}
             </Badge>
