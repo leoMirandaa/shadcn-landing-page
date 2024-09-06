@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card"
 import OrbitingCircles from "@/components/magicui/orbiting-circles"
 
 export const Hero = () => {
@@ -13,8 +13,7 @@ export const Hero = () => {
         }}
       ></div>
 
-      <section className="container relative py-20 md:py-32 flex items-center justify-center min-h-screen">
-        {/* Orbiting circles positioned above the background but below other content */}
+      <section className="container relative py-10 md:py-10 flex items-center justify-center min-h-[90vh]">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
           <div className="relative w-[600px] h-[600px]">
             <OrbitingCircles
@@ -104,18 +103,21 @@ export const Hero = () => {
           
           <Card className="text-center space-y-6 p-6 w-full lg:text-start lg:order-1 lg:pr-12 shadow-xl px-0">
             <CardHeader>
-              <CardTitle className="text-5xl md:text-5xl sm:text-2xl font-black">
+              <CardTitle className="text-5xl md:text-5xl sm:text-2xl font-black mb-4">
                 Predicting and Preventing Crime with Community Data 🔍
               </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-xl text-black mx-auto lg:mx-0">
+              <CardDescription>
                 Wolf is a personal safety network that empowers you to protect yourself and the people and places you care about. Wolf enables its followers to be more situationally aware. 🐺
-              </p>
-            </CardContent>
+              </CardDescription>
+            </CardHeader>
             <CardFooter>
               <Button 
-              variant="default" className="w-full">See Live Map 🗺️</Button>
+              variant="default" className="">See Live Map 🗺️</Button>
+              <Button 
+              variant="outline" 
+              className="ml-4">
+                Learn More 📚
+              </Button>
             </CardFooter>
           </Card>
           

@@ -17,23 +17,23 @@ import "./App.css";
 
 function App() {
   return (
-    
     <div className="mx-auto max-w-screen-lg">
       <Navbar />
       <Hero />
-      {/* <Sponsors /> */}
-      <About />
-      <HowItWorks />
-      <Features />
-      <Services />
-      <Cta />
-      <Testimonials />
-      <Team />
-      <Pricing />
-      {/* <Newsletter /> */}
-      <FAQ />
-      <Footer />
-      <ScrollToTop />
+      <div className="mx-auto max-w-screen-lg">
+        <About />
+        <HowItWorks />
+        <Features />
+        <Services />
+        <Cta />
+        <Testimonials />
+        <Team />
+        <Pricing />
+        {/* <Newsletter /> */}
+        <FAQ />
+        <Footer />
+        <ScrollToTop />
+      </div>
     </div>
   );
 }
