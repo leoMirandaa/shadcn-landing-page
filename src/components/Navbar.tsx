@@ -56,40 +56,41 @@ export const Navbar = () => {
             <a
               rel="noreferrer noopener"
               href="/"
-              className="ml-2 font-bold text-2xl flex"
+              className="ml-2 font-black text-2xl flex"
             >
-              <LogoIcon />
+              {/* <LogoIcon /> */}
               Wolf 🐺
             </a>
           </NavigationMenuItem>
 
           {/* mobile */}
           <span className="flex md:hidden">
-            <ModeToggle />
+            {/* <ModeToggle /> */}
 
             <Sheet
               open={isOpen}
               onOpenChange={setIsOpen}
             >
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="px-2">
+                <Button variant="default" size="icon" className="px-2">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Menu Icon</span>
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side={"left"}>
+              <SheetContent side={"top"}>
                 <SheetHeader>
                   <SheetTitle className="font-bold text-xl">
-                    Shadcn/React
+                    Wolf 🐺
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                   {routeList.map(({ href, label }: RouteProps) => (
                     <Button
                       key={label}
-                      variant="ghost"
+                      variant="default"
                       asChild
+                    className="w-full"
                     >
                       <a
                         rel="noreferrer noopener"
@@ -131,7 +132,7 @@ export const Navbar = () => {
             >
             </Button>
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
         </NavigationMenuList>
       </NavigationMenu>
