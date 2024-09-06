@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "../components/Icons";
 
 interface FeatureProps {
   icon: string;
@@ -49,14 +48,13 @@ export const HowItWorks = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map(({ icon, title, description }: FeatureProps, index) => (
+          {features.map(({ title, description }: FeatureProps) => (
             <Card
               key={title}
               className={`shadow-xl bg-black text-white`}
             >
               <CardHeader>
                 <CardTitle className="grid gap-4 place-items-center">
-                  {/* {icon} */}
                   {title}
                 </CardTitle>
               </CardHeader>
