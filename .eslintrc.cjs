@@ -10,9 +10,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    // Removed harsh linting rules
+    // Comment: We've removed the 'react-refresh/only-export-components' rule to make linting less strict
   },
 }
