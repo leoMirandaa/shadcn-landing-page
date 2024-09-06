@@ -1,5 +1,6 @@
 import { Statistics } from "./Statistics";
 import pilot from "../assets/pilot.png";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export const About = () => {
   return (
@@ -7,34 +8,34 @@ export const About = () => {
       id="about"
       className="container py-24 sm:py-32"
     >
-      <div className="bg-muted/50 border rounded-lg py-12">
-        <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
+      <Card className="shadow-xl">
+        <CardContent className="px-6 py-12 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
           <img
             src={pilot}
-            alt=""
+            alt="Wolf pilot"
             className="w-[300px] object-contain rounded-lg"
           />
-          <div className="bg-green-0 flex flex-col justify-between">
+          <div className="flex flex-col justify-between">
             <div className="pb-6">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-                  About{" "}
-                </span>
-                Company
-              </h2>
-              <p className="text-xl text-muted-foreground mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
-              </p>
+              <CardHeader>
+                <CardTitle className="text-3xl md:text-4xl font-bold">
+                  About Wolf 🐺
+                </CardTitle>
+              </CardHeader>
+              <CardDescription className="text-xl text-muted-foreground mt-4">
+                Wolf is a personal safety network that empowers you to protect yourself and the people and places you care about. Wolf enables its followers to be more situationally aware.
+              </CardDescription>
+              <CardDescription className="text-xl text-muted-foreground mt-4">
+                Wolf not only gathers insights but also amplifies its impact, making every community member more informed and vigilant.
+              </CardDescription>
+              <CardDescription className="text-xl text-muted-foreground mt-4">
+                Wolf is envisioned as an innovative safety tool that combines the strengths of response software and smart routing logic to provide a unified solution distributed through WhatsApp. By leveraging WhatsApp's widespread usage, Wolf enables users to send text messages or voice notes reporting suspicious behaviour or incident witness statements. Utilising sophisticated machine learning technologies, Wolf focuses on prevention and avoidance, analysing data to predict and mitigate potential threats before they escalate, as well as coordinating responses after incidents occur.
+              </CardDescription>
             </div>
-
             <Statistics />
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </section>
   );
 };

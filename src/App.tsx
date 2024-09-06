@@ -17,10 +17,11 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    
+    <div className="mx-auto max-w-screen-lg">
       <Navbar />
       <Hero />
-      <Sponsors />
+      {/* <Sponsors /> */}
       <About />
       <HowItWorks />
       <Features />
@@ -29,11 +30,11 @@ function App() {
       <Testimonials />
       <Team />
       <Pricing />
-      <Newsletter />
+      {/* <Newsletter /> */}
       <FAQ />
       <Footer />
       <ScrollToTop />
-    </>
+    </div>
   );
 }
 
