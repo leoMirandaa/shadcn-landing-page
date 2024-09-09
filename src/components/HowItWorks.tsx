@@ -11,25 +11,25 @@ const features: FeatureProps[] = [
     icon: "🏅",
     title: "Easy Accessibility 📱",
     description:
-      "With 28 million WhatsApp users in South Africa, Wolf leverages an app you already have. No new downloads or logins required - just send a message to contribute.",
+      "With 28 million WhatsApp users in South Africa, Wolf leverages an app you already have. No need to download a new app or provide personal details - just send Wolf a message to contribute.",
   },
   {
     icon: "🗺️",
     title: "Community-Driven Safety 🤝",
     description:
-      "Empower your community by sharing incident reports. Your contributions help create a decentralized safety network, benefiting everyone.",
+      "Empower your community by sharing what you saw and where you saw it. Your contributions helps to create a stronger safety network, benefiting everyone.",
   },
   {
     icon: "✈️",
-    title: "Virtual Police Statements 🚔",
+    title: "Virtual Witness Statements 🚔",
     description:
-      "Submit detailed witness statements via text or voice notes. Wolf stores and analyzes this data, creating a valuable resource for law enforcement.",
+      "Submit detailed witness statements via a message or voice notes. Wolf stores and analyses this data, creating a valuable tool for public protectors.",
   },
   {
     icon: "🎁",
-    title: "Enhanced Security Patrols 🛡️",
+    title: "More Efficient Patrol Routes 🛡️",
     description:
-      "Security companies benefit from targeted patrol routing based on community data, improving response times and overall safety.",
+      "Your local armed response teams will benefit from optimised patrol routing based on community reports, improving response times and overall safety.",
   },
 ];
 
