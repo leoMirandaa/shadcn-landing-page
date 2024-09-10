@@ -11,7 +11,7 @@ export const About = () => {
       id="about"
       className="container py-24 sm:py-32 z-20"
     >
-      <div className="relative mx-auto">
+      <div className="relative">
         <Card className="shadow-xl relative z-10">
           <CardContent className="px-6 py-12 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
             <div className="md:w-1/3 relative hidden md:block">
