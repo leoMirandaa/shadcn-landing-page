@@ -44,7 +44,7 @@ export const HowItWorks = () => {
           No logins required. No tracking. No ads. Just tell Wolf what's happening. 📢
         </h2>
         <p className="md:w-3/4 mx-auto mt-4 mb-8 text-lg text-muted-foreground">
-          Wolf simplifies community safety reporting. Just send a message to contribute valuable information. Your input helps create a safer environment for everyone.
+          Wolf simplifies incident reporting. Just send a message or voice note to contribute valuable information. Your reports help Wolf create a safer environment for everyone.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

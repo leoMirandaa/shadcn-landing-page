@@ -1,8 +1,13 @@
+import React, { useState } from 'react';
 import { Statistics } from "./Statistics";
 import pilot from "../assets/pilot.png";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  if (!isVisible) return null;
+
   return (
     <section
       id="about"

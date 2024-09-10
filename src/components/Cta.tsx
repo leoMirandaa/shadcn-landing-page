@@ -7,12 +7,12 @@ export const Cta = () => {
         <CardContent className="p-6 lg:grid lg:grid-cols-2 place-items-center gap-8">
           <div className="lg:col-start-1">
             <CardHeader>
-              <CardTitle className="text-3xl md:text-4xl font-bold">
-                Found Wolf too late? Don't worry, you can report past events on Wolf too. 
+              <CardTitle className="text-3xl md:text-3xl font-bold">
+                Found Wolf too late? Don't worry, Wolf is able to process historical reports. 
               </CardTitle>
             </CardHeader>
-            <CardDescription className="text-muted-foreground text-xl mt-4 mb-8 lg:mb-0">
-              We aim to gather all safety-related events on our platform, including past incidents. This comprehensive data collection allows us to analyze patterns and trends, enabling us to predict when and where future events might occur. By contributing your experiences, you're helping to build a safer community for everyone.
+            <CardDescription className="text-muted-foreground text-md mt-4 mb-8 lg:mb-0">
+              The more report data that Wolf has access to the stronger its predictive capabilities are. By contributing and sharing any historical incidents, you're helping to build a safer community for everyone.
             </CardDescription>
           </div>
           {/* Image added above the buttons */}
