@@ -110,7 +110,7 @@ export const Hero = () => {
                 <p className="mb-4">
                  Wolf is an advanced personal safety network that empowers  you to protect yourself, your loved ones, and your community. By leveraging real-time data and community reports, Wolf enhances your situational awareness, helping you make informed decisions about your safety.
                 </p>
-                <p>
+                <p className="mb-4">
                   Contribute to community safety effortlessly by submitting anonymous reports through WhatsApp or our user-friendly webapp. Join the Wolf pack and be part of a proactive approach to crime prevention and personal security. 🐺
                 </p>
               </CardDescription>
