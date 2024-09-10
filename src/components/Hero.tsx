@@ -103,15 +103,15 @@ export const Hero = () => {
           
           <Card className="text-center space-y-6 p-6 w-full lg:text-start lg:order-1 lg:pr-12 shadow-xl px-0">
             <CardHeader>
-              <CardTitle className="text-6xl md:text-6xl sm:text-2xl font-black mb-4">
+              <CardTitle className="text-3xl md:text-3xl sm:text-2xl font-black mb-4">
                 A Service Asking You to Cry Wolf 🐺
               </CardTitle>
               <CardDescription>
-                <p className="mb-4">
+                <p className="text-md text-muted-foreground mt-4">
                  Wolf is an advanced personal safety network that empowers  you to protect yourself, your loved ones, and your community. By leveraging real-time data and community reports, Wolf enhances your situational awareness, helping you make informed decisions about your safety.
                 </p>
-                <p className="mb-4">
-                  Contribute to community safety effortlessly by submitting anonymous reports through WhatsApp or our user-friendly webapp. Join the Wolf pack and be part of a proactive approach to crime prevention and personal security. 🐺
+                <p className="text-md text-muted-foreground mt-4">
+                  Contribute to community safety effortlessly by submitting anonymous reports through WhatsApp or webapp's live map. Join the Wolf pack and be part of a proactive approach to crime prevention and personal security. 🐺
                 </p>
               </CardDescription>
             </CardHeader>
