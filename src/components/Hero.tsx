@@ -11,14 +11,14 @@ export const Hero = () => {
           <h1 className="inline">
             <span className="inline bg-gradient-to-r from-[#F596D3]  to-[#D247BF] text-transparent bg-clip-text">
               Shadcn
-            </span>{" "}
+            </span>&nbsp;
             landing page
-          </h1>{" "}
-          for{" "}
+          </h1>&nbsp;
+          for&nbsp;
           <h2 className="inline">
             <span className="inline bg-gradient-to-r from-[#61DAFB] via-[#1fc0f1] to-[#03a3d7] text-transparent bg-clip-text">
               React
-            </span>{" "}
+            </span>&nbsp;
             developers
           </h2>
         </main>
