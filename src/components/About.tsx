@@ -19,7 +19,7 @@ export const About = () => {
             <div className="pb-6">
               <CardHeader>
                 <CardTitle className="text-3xl md:text-4xl text-left font-bold">
-                  Why we want to empower everyone to report what they see with Wolf 🐺
+                  Why we want to empower everyone to report what they see with
                 </CardTitle>
               </CardHeader>
               <CardDescription className="text-lg text-muted-foreground mt-4">
