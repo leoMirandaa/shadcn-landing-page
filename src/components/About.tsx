@@ -11,14 +11,12 @@ export const About = () => {
       id="about"
       className="container py-24 sm:py-32 z-20"
     >
-      <div className="relative">
-
-
+      <div className="relative mx-auto">
         <Card className="shadow-xl relative z-10">
           <CardContent className="px-6 py-12 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
-          <div className="md:w-1/3 relative">
+            <div className="md:w-1/3 relative hidden md:block">
               <div className="absolute left-1/6 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                <img src="https://res.cloudinary.com/dkbn21xdu/image/upload/v1725988147/Enaibled_Logos_z8hksf.svg" alt="Image" className="w-100 h-100 max-w-[200%]" />
+                <img src="https://res.cloudinary.com/dkbn21xdu/image/upload/v1725988147/Enaibled_Logos_z8hksf.svg" alt="Image" className="w-100 h-100 lg:max-w-[200%] md:max-w-[150%] sm:max-w-[100%]" />
               </div>
             </div>
             <div className="flex flex-col justify-between md:w-2/3">
