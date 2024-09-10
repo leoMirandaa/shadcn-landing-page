@@ -27,7 +27,7 @@ const features: FeatureProps[] = [
   },
   {
     icon: "🎁",
-    title: "More Efficient Patrol Routes 🛡️",
+    title: "Precise Patrol Routes 🛡️",
     description:
       "Your local armed response teams will benefit from optimised patrol routing based on community reports, improving response times and overall safety.",
   },
@@ -40,10 +40,10 @@ export const HowItWorks = () => {
       className="container text-center py-24 sm:py-32"
     >
       <Card className="shadow-xl p-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-3xl font-bold mb-4">
           No logins required. No tracking. No ads. Just tell Wolf what's happening. 📢
         </h2>
-        <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
+        <p className="md:w-3/4 mx-auto mt-4 mb-8 text-lg text-muted-foreground">
           Wolf simplifies community safety reporting. Just send a message to contribute valuable information. Your input helps create a safer environment for everyone.
         </p>
 
