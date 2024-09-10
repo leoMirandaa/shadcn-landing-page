@@ -47,18 +47,20 @@ export const HowItWorks = () => {
           Wolf simplifies incident reporting. Just send a message or voice note to contribute valuable information. Your reports help Wolf create a safer environment for everyone.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map(({ title, description }: FeatureProps) => (
             <Card
               key={title}
-              className={`shadow-xl bg-black text-white`}
+              className={`shadow-xl bg-white text-black`}
             >
               <CardHeader>
-                <CardTitle className="grid gap-4 place-items-center">
+                <CardTitle className="grid gap-4 place-items-center text-left">
                   {title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>{description}</CardContent>
+              <CardContent className="text-left">
+                {description}
+              </CardContent>
             </Card>
           ))}
         </div>

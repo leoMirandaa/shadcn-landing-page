@@ -103,7 +103,7 @@ export const Hero = () => {
           
           <Card className="text-center space-y-6 p-6 w-full lg:text-start lg:order-1 lg:pr-12 shadow-xl px-0">
             <CardHeader>
-              <CardTitle className="text-3xl md:text-3xl sm:text-2xl font-black mb-4">
+              <CardTitle className="text-4xl md:text-5xl sm:text-4xl font-black mb-4">
                 A Service Asking You to Cry Wolf 🐺
               </CardTitle>
               <CardDescription>
