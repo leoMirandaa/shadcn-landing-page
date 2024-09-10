@@ -1,7 +1,7 @@
 import { Statistics } from "./Statistics";
-import pilot from "../assets/pilot.png";
+// import pilot from "../assets/pilot.png";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import Safari from "@/components/magicui/safari";
+// import Safari from "@/components/magicui/safari";
 // import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 
 export const About = () => {
