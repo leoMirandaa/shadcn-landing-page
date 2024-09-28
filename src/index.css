@@ -13,6 +13,7 @@ html {
   top: 200px;
   height: 400px;
   filter: blur(150px);
+  will-change: transform;
   animation: shadow-slide infinite 4s linear alternate;
 }
 
