@@ -51,7 +51,7 @@ export const FAQ = () => {
       className="container py-24 sm:py-32"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Frequently Asked{" "}
+        Frequently Asked&nbsp;
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
           Questions
         </span>
@@ -77,7 +77,7 @@ export const FAQ = () => {
       </Accordion>
 
       <h3 className="font-medium mt-4">
-        Still have questions?{" "}
+        Still have questions?&nbsp;
         <a
           rel="noreferrer noopener"
           href="#"

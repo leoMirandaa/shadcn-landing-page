@@ -81,8 +81,8 @@ export const Pricing = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-center">
         Get
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          {" "}
-          Unlimited{" "}
+          &nbsp;
+          Unlimited&nbsp;
         </span>
         Access
       </h2>
@@ -133,7 +133,7 @@ export const Pricing = () => {
                     key={benefit}
                     className="flex"
                   >
-                    <Check className="text-green-500" />{" "}
+                    <Check className="text-green-500" />&nbsp;
                     <h3 className="ml-2">{benefit}</h3>
                   </span>
                 ))}
