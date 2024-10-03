@@ -8,7 +8,7 @@ html {
   background: hsl(var(--primary) / 0%);
   border-radius: 24px;
   rotate: 35deg;
-
+  z-index: -1;
   width: 260px;
   top: 200px;
   height: 400px;
