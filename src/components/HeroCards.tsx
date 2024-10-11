@@ -144,7 +144,7 @@ export const HeroCards = () => {
                   key={benefit}
                   className="flex"
                 >
-                  <Check className="text-green-500" />{" "}
+                  <Check className="text-green-500" />&nbsp;
                   <h3 className="ml-2">{benefit}</h3>
                 </span>
               )

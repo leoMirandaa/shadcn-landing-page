@@ -13,7 +13,7 @@ export const Newsletter = () => {
 
       <div className="container py-24 sm:py-32">
         <h3 className="text-center text-4xl md:text-5xl font-bold">
-          Join Our Daily{" "}
+          Join Our Daily&nbsp;
           <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
             Newsletter
           </span>

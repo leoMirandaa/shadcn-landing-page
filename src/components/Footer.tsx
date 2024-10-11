@@ -152,7 +152,7 @@ export const Footer = () => {
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2024 Landing page made by{" "}
+          &copy; 2024 Landing page made by&nbsp;
           <a
             rel="noreferrer noopener"
             target="_blank"
