@@ -13,11 +13,13 @@ import { Services } from "./components/Services";
 import { Sponsors } from "./components/Sponsors";
 import { Team } from "./components/Team";
 import { Testimonials } from "./components/Testimonials";
+import DynamicComponent from "./components/DynamicComponent";
 import "./App.css";
 
 function App() {
   return (
     <>
+      <DynamicComponent key="" />
       <Navbar />
       <Hero />
       <Sponsors />
