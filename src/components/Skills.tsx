@@ -73,34 +73,38 @@ const skills: Skills[] = [
 
 export const Skills = () => {
   return (
-      <section id="skills" className="container py-8">
-        <h2 className="text-3xl md:text-4xl font-bold pb-8">
-          These are some of the
-          <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          {" "}
-            skills{" "}
-        </span>
-          I have acquired
-        </h2>
+      <section
+          id="skills"
+          className="container py-20"
+      >
+        <div className="snes-container py-4">
+          <h2 className="snes-container-title has-ocean-underline">
+            Skills
+          </h2>
+          <h3>
+            These are some of the skills I have acquired
+          </h3>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skills.map(({ image, name, comment }: Skills) => (
-              <Card key={name} className="flex flex-col min-h-full">
-                <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <Avatar>
-                    <AvatarImage alt="" src={image} />
-                    <AvatarFallback>OM</AvatarFallback>
-                  </Avatar>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map(({image, name, comment}: Skills) => (
+                <Card key={name} className="flex flex-col min-h-full">
+                  <CardHeader className="flex flex-row items-center gap-2">
+                    <Avatar>
+                      <AvatarImage alt={name} src={image}/>
+                      <AvatarFallback>OM</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col">
+                      <CardTitle >{name}</CardTitle>
+                    </div>
+                  </CardHeader>
 
-                  <div className="flex flex-col">
-                    <CardTitle className="text-lg">{name}</CardTitle>
-                  </div>
-                </CardHeader>
+                  <CardContent className="flex-grow">{comment}</CardContent>
+                </Card>
+            ))}
+          </div>
 
-                <CardContent className="flex-grow">{comment}</CardContent>
-              </Card>
-          ))}
         </div>
+
       </section>
   );
 };

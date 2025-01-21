@@ -2,24 +2,17 @@ import { HeroCards } from "./HeroCards";
 
 export const Hero = () => {
     return (
-        <section className="container">
-            <div className="grid md:grid-cols-2 gap-4 mt-20">
-                <div className="text-5xl md:text-6xl font-bold ">
-                    <h1 className="inline">Hi there</h1>
-                    <h2>My name is</h2>
-                    <h2>
-            <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              Torsten Jamin{" "}
-            </span>
-                    </h2>
+        <section className="container w-200">
+            <div className="mt-8 md:mt-32 grid md:grid-cols-3 gap-2  md:place-items-space-between">
+                <div className="text-5xl lg:text-6xl my-auto col-span-2">
+                    <h1>Hi there,</h1>
+                    <h1>my name is</h1>
+                    <h1 className="text-ocean-color">Torsten Jamin</h1>
                 </div>
-                <div className="mt-20 md:mt-0 place-items-end">
+                <div className="mt-8 md:mt-0">
                     <HeroCards />
                 </div>
             </div>
-
-            {/* Shadow effect */}
-            <div className="shadow"></div>
         </section>
     );
 };

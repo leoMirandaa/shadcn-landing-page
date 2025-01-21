@@ -2,21 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* HeroCards background shadow */
-.shadow {
-  position: absolute;
-  background: hsl(var(--primary) / 0%);
-  border-radius: 24px;
-  rotate: 35deg;
-  z-index: -1;
-  width: 260px;
-  top: 200px;
-  height: 400px;
-  filter: blur(150px);
-  will-change: transform;
-  animation: shadow-slide infinite 4s linear alternate;
-}
-
 @keyframes shadow-slide {
   from {
     background: hsl(var(--primary) / 20%);
@@ -64,3 +49,4 @@ html {
     }
   }
 }
+
