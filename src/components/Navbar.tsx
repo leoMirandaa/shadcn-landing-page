@@ -116,14 +116,6 @@ export const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex">
-            <a
-              rel="noreferrer noopener"
-              href="https://github.com/trstnjmn"
-              target="_blank"
-              className="snes-button has-galaxy-color p-1 mr-8"
-            >
-              Github
-            </a>
 
             <ModeToggle />
           </div>
