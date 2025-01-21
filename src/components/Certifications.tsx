@@ -39,7 +39,18 @@ const certifications: FeatureProps[] = [
 
 ];
 
-
+const classNames = [
+  'text-ember-color',
+  'text-galaxy-color',
+  'text-rose-color',
+  'text-phantom-color',
+  'text-turquoise-color',
+  'text-ocean-color',
+  'text-sunshine-color',
+  'text-plumber-color',
+  'text-nature-color',
+  ''
+];
 
 export const Certifications = () => {
   return (
@@ -53,8 +64,8 @@ export const Certifications = () => {
         <h3 className="mb-8">
           Here are some of my certifications
         </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-          {certifications.map(({title, image, link, linkName}: FeatureProps) => (
+        <div className="grid md:grid-cols-2 gap-8 text-center">
+          {certifications.map(({title, image, link, linkName}, index ) => (
               <Card key={title}>
                 <CardHeader>
                   <CardTitle>{title}</CardTitle>
@@ -64,7 +75,7 @@ export const Certifications = () => {
                   <img
                       src={image}
                       alt="About feature"
-                      className="object-cover object-center h-[200px] lg:w-[300px] mx-auto"
+                      className=" object-center h-[200px] lg:h-[300px] mx-auto"
                   />
                 </CardFooter>
                 <CardLink>
@@ -72,7 +83,7 @@ export const Certifications = () => {
                       rel="noreferrer noopener"
                       href={link}
                       target="_blank"
-                      className="text-wrap"
+                      className={`snes-link text-wrap ${classNames[index % classNames.length]}`}
                   >
                     {linkName}
                   </a>

@@ -27,7 +27,7 @@ export const HeroCards = () => {
                       rel="noreferrer noopener"
                       href="https://github.com/trstnjmn"
                       target="_blank"
-                      className="snes-link  text-ocean-color"
+                      className="snes-link text-ocean-color"
                   >
                       GitHub
                   </a>

@@ -52,6 +52,8 @@ const skills: Skills[] = [
   },
 ];
 
+const classNames = ['has-plumber-bg', 'has-phantom-bg', 'has-ember-bg', ''];
+
 export const Skills = () => {
   return (
       <section
@@ -65,19 +67,24 @@ export const Skills = () => {
           These are some of the skills I have acquired
         </h3>
 
-        <div className="flex flex-wrap md:justify-center gap-4">
-          {skills.map(({image, name}: Skills) => (
-              <div key={name} >
-                <blockquote className="flex felx-row my-auto snes-blockquote has-plumber-bg">
+        <div className="flex flex-wrap gap-8">
+          {skills.map(({ image, name }, index) => (
+              <div key={name}>
+                <blockquote
+                    className={`p-1 flex flex-row my-auto snes-blockquote ${
+                        classNames[index % classNames.length]
+                    }`}
+                >
                   <Avatar>
-                    <AvatarImage alt={name} src={image}/>
-                    <AvatarFallback>OM</AvatarFallback>
+                    <AvatarImage alt={name} src={image} />
+                    <AvatarFallback></AvatarFallback>
                   </Avatar>
                   <p className="my-auto ml-4">{name}</p>
                 </blockquote>
               </div>
           ))}
         </div>
+
       </section>
   );
 };

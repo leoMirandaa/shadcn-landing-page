@@ -8,7 +8,6 @@ import {
 import whistleblower from "../img/Whistleblower.jpg";
 import wachenheim from "../img/Wachenheim.jpeg";
 import kinderkunstschule from "../img/Kinderkunstschule.jpeg";
-import {buttonVariants} from "@/components/ui/button.tsx";
 
 interface FeatureProps {
   title: string;
@@ -22,7 +21,7 @@ const projects: FeatureProps[] = [
   {
     title: "Whistleblower Tool",
     description:
-      "The Whistleblower tool by bitExpert allows for the secure and anonymous reporting of misconduct, fraud, ethical violations, and other issues. This tool helps companies mitigate risks, increase employee satisfaction, and ensure compliance with legal regulations.",
+        "The Whistleblower tool by bitExpert allows for the secure and anonymous reporting of misconduct, fraud, ethical violations, and other issues. This tool helps companies mitigate risks, increase employee satisfaction, and ensure compliance with legal regulations.",
     image: whistleblower,
     link: "https://www.bitexpert.de/de/produkte/whistleblower",
     linkName: "Whistleblower",
@@ -30,7 +29,7 @@ const projects: FeatureProps[] = [
   {
     title: "Website for SSV-Wachenheim",
     description:
-      "I have set up a website for the Wachenheim Shooting Club. This site was only available in very old HTML and CSS code. First I started to rewrite the website in React. Then I decided to do it with GRAV so that the owner can easily edit the content of the site in a simple CMS.",
+        "I have set up a website for the Wachenheim Shooting Club. This site was only available in very old HTML and CSS code. First I started to rewrite the website in React. Then I decided to do it with GRAV so that the owner can easily edit the content of the site in a simple CMS.",
     image: wachenheim,
     link: "http://www.ssv-wachenheim.de/",
     linkName: "SSV-Wachenheim",
@@ -38,14 +37,25 @@ const projects: FeatureProps[] = [
   {
     title: "Website Kinderkunstschule Bad Homburg",
     description:
-      "This page was created with Wix.com. The design is self-made. The children's art school is run by Ulrike Göhring. She also offers art therapy. The German slogan is : Kleine Künstler, große Ideen!",
+        "This page was created with Wix.com. The design is self-made. The children's art school is run by Ulrike Göhring. She also offers art therapy. The German slogan is : Kleine Künstler, große Ideen!",
     image: kinderkunstschule,
     link: "https://kinderkunstschule-hg.de/",
     linkName: "Kinderkunstschule Bad Homburg",
   },
 ];
 
-
+const classNames = [
+  'text-ember-color',
+  'text-galaxy-color',
+  'text-rose-color',
+  'text-phantom-color',
+  'text-turquoise-color',
+  'text-ocean-color',
+  'text-sunshine-color',
+  'text-plumber-color',
+  'text-nature-color',
+  ''
+];
 
 export const Projects = () => {
   return (
@@ -60,7 +70,7 @@ export const Projects = () => {
           A few projects I have done.
         </h3>
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map(({title, description, image, link, linkName}: FeatureProps) => (
+          {projects.map(({ title, description, image, link, linkName }, index) => (
               <Card key={title}>
                 <CardHeader>
                   <CardTitle>{title}</CardTitle>
@@ -71,7 +81,7 @@ export const Projects = () => {
                 <CardFooter>
                   <img
                       src={image}
-                      alt="About feature"
+                      alt={title}
                       className="object-cover object-center h-[200px] lg:h-[300px] mx-auto"
                   />
                 </CardFooter>
@@ -80,16 +90,12 @@ export const Projects = () => {
                       rel="noreferrer noopener"
                       href={link}
                       target="_blank"
-                      className={buttonVariants({
-                        variant: "ghost",
-                        size: "sm",
-                      })}
+                      className={`snes-link ${classNames[index % classNames.length]}`}
                   >
                     {linkName}
                   </a>
                 </CardLink>
               </Card>
-
           ))}
         </div>
       </section>
