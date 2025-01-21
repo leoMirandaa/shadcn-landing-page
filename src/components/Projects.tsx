@@ -49,51 +49,49 @@ const projects: FeatureProps[] = [
 
 export const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="container py-8 space-y-8"
-    >
-      <h2 className="text-3xl lg:text-4xl font-bold">
-        A few{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          projects
-        </span>
-        I have done
-      </h2>
+      <section
+          id="projects"
+          className="container py-20"
+      >
+        <h2 className="snes-container-title has-ocean-underline mb-8">
+          Projects
+        </h2>
+        <h3 className="mb-8">
+          A few projects I have done.
+        </h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map(({title, description, image, link, linkName}: FeatureProps) => (
+              <Card key={title}>
+                <CardHeader>
+                  <CardTitle>{title}</CardTitle>
+                </CardHeader>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map(({ title, description, image, link, linkName }: FeatureProps) => (
-            <Card key={title}>
-              <CardHeader>
-                <CardTitle>{title}</CardTitle>
-              </CardHeader>
+                <CardContent>{description}</CardContent>
 
-              <CardContent>{description}</CardContent>
+                <CardFooter>
+                  <img
+                      src={image}
+                      alt="About feature"
+                      className="object-cover object-center h-[200px] lg:h-[300px] mx-auto"
+                  />
+                </CardFooter>
+                <CardLink>
+                  <a
+                      rel="noreferrer noopener"
+                      href={link}
+                      target="_blank"
+                      className={buttonVariants({
+                        variant: "ghost",
+                        size: "sm",
+                      })}
+                  >
+                    {linkName}
+                  </a>
+                </CardLink>
+              </Card>
 
-              <CardFooter>
-                <img
-                    src={image}
-                    alt="About feature"
-                    className="object-cover object-center h-[200px] lg:h-[300px] mx-auto"
-                />
-              </CardFooter>
-              <CardLink>
-                <a
-                    rel="noreferrer noopener"
-                    href={link}
-                    target="_blank"
-                    className={buttonVariants({
-                      variant: "ghost",
-                      size: "sm",
-                    })}
-                >
-                  {linkName}
-                </a>
-              </CardLink>
-            </Card>
-
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
   );
 };

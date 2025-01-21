@@ -12,12 +12,12 @@ export const HeroCards = () => {
               <CardHeader >
                   <CardTitle className="text-center mb-2">Torsten Jamin</CardTitle>
                   <img
-                      src="https://media.licdn.com/dms/image/v2/D4E03AQHqo29qC6k3YQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1712223290173?e=1743033600&v=beta&t=jaaJWhXWFD5k42UWzfo2ivyKypY64BA38UFAincWblU"
+                      src="src/img/Pixel profile extra large.png"
                       alt="About feature"
-                      className="object-cover object-center h-[200px] mx-auto mb-2"
+                      className="object-cover object-center mx-auto mb-2"
                   />
 
-                  <CardDescription className="">
+                  <CardDescription className="text-center">
                       Frontend Developer
                   </CardDescription>
               </CardHeader>
