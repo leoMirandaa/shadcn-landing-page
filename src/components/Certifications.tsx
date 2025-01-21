@@ -1,79 +1,72 @@
 import {
   Card,
-  CardContent,
   CardFooter,
   CardHeader, CardLink,
   CardTitle,
 } from "@/components/ui/card";
-import whistleblower from "../img/Whistleblower.jpg";
-import wachenheim from "../img/Wachenheim.jpeg";
-import kinderkunstschule from "../img/Kinderkunstschule.jpeg";
+import image1 from "../img/Certification-Responsive-Web-Design.jpg";
+import image2 from "../img/Frontend certification Torsten Jamin.jpeg";
+import image3 from "../img/Low-Code Academy Certifacation.png";
 import {buttonVariants} from "@/components/ui/button.tsx";
 
 interface FeatureProps {
   title: string;
-  description: string;
   image: string;
   link: string;
   linkName: string;
 }
 
-const projects: FeatureProps[] = [
+const certifications: FeatureProps[] = [
   {
-    title: "Whistleblower Tool",
-    description:
-      "The Whistleblower tool by bitExpert allows for the secure and anonymous reporting of misconduct, fraud, ethical violations, and other issues. This tool helps companies mitigate risks, increase employee satisfaction, and ensure compliance with legal regulations.",
-    image: whistleblower,
-    link: "https://www.bitexpert.de/de/produkte/whistleblower",
-    linkName: "Whistleblower",
+    title: "Responsive Web Design",
+    image: image1,
+    link: "https://www.freecodecamp.org/",
+    linkName: "from freecodecamp.org",
   },
+
   {
-    title: "Website for SSV-Wachenheim",
-    description:
-      "I have set up a website for the Wachenheim Shooting Club. This site was only available in very old HTML and CSS code. First I started to rewrite the website in React. Then I decided to do it with GRAV so that the owner can easily edit the content of the site in a simple CMS.",
-    image: wachenheim,
-    link: "http://www.ssv-wachenheim.de/",
-    linkName: "SSV-Wachenheim",
+    title: "Frrontend Certification",
+    image: image2,
+    link: "https://www.freecodecamp.org/",
+    linkName: "from freecodecamp.org",
   },
+
   {
-    title: "Website Kinderkunstschule Bad Homburg",
-    description:
-      "This page was created with Wix.com. The design is self-made. The children's art school is run by Ulrike Göhring. She also offers art therapy. The German slogan is : Kleine Künstler, große Ideen!",
-    image: kinderkunstschule,
-    link: "https://kinderkunstschule-hg.de/",
-    linkName: "Kinderkunstschule Bad Homburg",
+    title: "Responsive Web Design",
+    image: image3,
+    link: "https://academy.plantanapp.com/",
+    linkName: "from Plant an App Low-Code Academy",
   },
+
 ];
 
 
 
-export const Projects = () => {
+export const Certifications = () => {
   return (
     <section
-      id="projects"
+      id="certifications"
       className="container py-8 space-y-8"
     >
       <h2 className="text-3xl lg:text-4xl font-bold">
-        A few{" "}
+        Here are some of my{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          projects I have done
+          certifications
         </span>
       </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map(({ title, description, image, link, linkName }: FeatureProps) => (
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        {certifications.map(({ title, image, link, linkName }: FeatureProps) => (
             <Card key={title}>
               <CardHeader>
                 <CardTitle>{title}</CardTitle>
               </CardHeader>
 
-              <CardContent>{description}</CardContent>
-
               <CardFooter>
                 <img
                     src={image}
                     alt="About feature"
-                    className="object-cover object-center w-[200px] lg:w-[300px] h-[200px] lg:h-[300px] mx-auto"
+                    className="object-cover object-center h-[200px] lg:w-[300px] mx-auto"
                 />
               </CardFooter>
               <CardLink>

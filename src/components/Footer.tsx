@@ -13,17 +13,18 @@ export const Footer = () => {
             className="font-bold text-xl flex"
           >
             <LogoIcon />
-            ShadcnUI/React
+            trstjmn
           </a>
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Follow US</h3>
+          <h3 className="font-bold text-lg">Follow me</h3>
           <div>
             <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
+                rel="noreferrer noopener"
+                target="_blank"
+                href="https://github.com/trstnjmn"
+                className="opacity-60 hover:opacity-100"
             >
               Github
             </a>
@@ -31,135 +32,88 @@ export const Footer = () => {
 
           <div>
             <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
+                rel="noreferrer noopener"
+                target="_blank"
+                href="https://www.instagram.com/jamintorsten/"
+                className="opacity-60 hover:opacity-100"
             >
-              Twitter
+              Instagram
             </a>
           </div>
-
           <div>
             <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
+                rel="noreferrer noopener"
+                target="_blank"
+                href="https://www.linkedin.com/in/torsten-jamin-436200268/"
+                className="opacity-60 hover:opacity-100"
             >
-              Dribbble
+              LinkedIn
             </a>
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
+          <h3 className="font-bold text-lg">3D print</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://makerworld.com/en/@torstenjamin"
               className="opacity-60 hover:opacity-100"
             >
-              Web
+              Maker World
             </a>
           </div>
 
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.printables.com/@trstn"
               className="opacity-60 hover:opacity-100"
             >
-              Mobile
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Desktop
+              Printables
             </a>
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">About</h3>
+          <h3 className="font-bold text-lg">My wife's store</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.bilderbuchblume.de/"
               className="opacity-60 hover:opacity-100"
             >
-              Features
+              BilderBuchBlume
             </a>
           </div>
 
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.etsy.com/de/shop/Bilderbuchblume?ref=shop-header-name&listing_id=1592391844&from_page=listing"
               className="opacity-60 hover:opacity-100"
             >
-              Pricing
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              FAQ
+              Etsy
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Youtube
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
-            </a>
-          </div>
-        </div>
       </section>
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2024 Landing page made by{" "}
+          &copy; 2025 Landing page made by{" "}
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
+            href="https://github.com/trstnjmn"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            Leo Miranda
+            Torsten Jamin
           </a>
         </h3>
       </section>

@@ -25,20 +25,16 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
-    label: "Features",
+    href: "#skills",
+    label: "Skills",
   },
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "#projects",
+    label: "Projects",
   },
   {
     href: "#pricing",
-    label: "Pricing",
-  },
-  {
-    href: "#faq",
-    label: "FAQ",
+    label: "Certifications",
   },
 ];
 
@@ -55,7 +51,7 @@ export const Navbar = () => {
               className="ml-2 font-bold text-xl flex"
             >
               <LogoIcon />
-              ShadcnUI/React
+              trstnjmn
             </a>
           </NavigationMenuItem>
 
@@ -129,7 +125,7 @@ export const Navbar = () => {
           <div className="hidden md:flex gap-2">
             <a
               rel="noreferrer noopener"
-              href="https://github.com/leoMirandaa/shadcn-landing-page.git"
+              href="https://github.com/trstnjmn"
               target="_blank"
               className={`border ${buttonVariants({ variant: "secondary" })}`}
             >
