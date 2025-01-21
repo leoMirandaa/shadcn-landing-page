@@ -6,13 +6,6 @@ export const Footer = () => {
 
       <section className="container py-4 grid grid-cols-2 md:grid-cols-5 gap-x-12">
         <div className="col-span-full xl:col-span-2">
-          <a
-            rel="noreferrer noopener"
-            href="/"
-            className="snes-link text-ember-color"
-          >
-            TrstJmn
-          </a>
         </div>
 
         <div className="flex flex-col gap-2">
