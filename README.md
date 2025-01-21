@@ -10,13 +10,14 @@ Build your React landing page effortlessly with the required sections to your pr
 - [x] Sidebar(mobile)
 - [x] Hero
 - [x] Sponsors
+- [x] Certifications
 - [x] About
 - [x] Stats
 - [x] How It Works
-- [x] Features
+- [x] Projects
 - [x] Services
 - [x] Call-to-Action (CTA)
-- [x] Testimonials
+- [x] Skills
 - [x] Team
 - [x] Pricing
 - [x] Newsletter
