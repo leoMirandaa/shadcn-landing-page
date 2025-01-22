@@ -12,7 +12,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 
@@ -31,9 +30,21 @@ const routeList: RouteProps[] = [
     label: "Projects",
   },
   {
-    href: "#pricing",
+    href: "#certifications",
     label: "Certifications",
   },
+];
+
+const snesButtonColors = [
+  'has-plumber-color',
+  'has-sunshine-color',
+  'has-ocean-color',
+  'has-turquoise-color',
+  'has-phantom-color',
+  'has-rose-color',
+  'has-galaxy-color',
+  'has-ember-color',
+  ''
 ];
 
 export const Navbar = () => {
@@ -62,7 +73,7 @@ export const Navbar = () => {
             >
               <SheetTrigger className="px-2">
                 <Menu
-                  className="flex md:hidden h-5 w-5"
+                  className="flex md:hidden h-15 w-15"
                   onClick={() => setIsOpen(true)}
                 >
                   <span className="sr-only">Menu Icon</span>
@@ -71,31 +82,22 @@ export const Navbar = () => {
 
               <SheetContent side={"left"}>
                 <SheetHeader>
-                  <SheetTitle className="font-bold text-xl">
+                  <SheetTitle className="font-bold text-2xl my-8">
                     TrstnJmn
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col justify-center items-center gap-2 mt-4">
-                  {routeList.map(({ href, label }: RouteProps) => (
+                <nav className="flex flex-col justify-center items-center gap-8 mt-4">
+                  {routeList.map(({ href, label }, index) => (
                     <a
                       rel="noreferrer noopener"
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className="snes-link has-galaxy-color p-0"
+                      className={`snes-button p-1k ${snesButtonColors[index % snesButtonColors.length]}`}
                     >
                       {label}
                     </a>
                   ))}
-                  <a
-                    rel="noreferrer noopener"
-                    href="https://github.com/trstnjmn"
-                    target="_blank"
-                    className="snes-button has-galaxy-color"
-                  >
-                    <GitHubLogoIcon className="mr-2 w-5 h-5" />
-                    Github
-                  </a>
                 </nav>
               </SheetContent>
             </Sheet>

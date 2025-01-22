@@ -82,7 +82,7 @@ export const Projects = () => {
                   <img
                       src={image}
                       alt={title}
-                      className="object-cover object-center h-[200px] lg:h-[300px] mx-auto"
+                      className="object-cover object-center w-full mx-auto snes-image"
                   />
                 </CardFooter>
                 <CardLink>

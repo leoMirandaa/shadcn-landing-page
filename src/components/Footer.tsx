@@ -4,10 +4,10 @@ export const Footer = () => {
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
 
-      <section className="container py-4 grid grid-cols-2 md:grid-cols-5 gap-x-12">
-        <div className="col-span-full xl:col-span-2">
-        </div>
+      <section className="container py-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="flex flex-col gap-2">
 
+        </div>
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Follow me</h3>
           <div>
@@ -68,7 +68,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 col-span-2 md:col-span-1">
           <h3 className="font-bold text-lg">My wife's store</h3>
           <div>
             <a

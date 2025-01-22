@@ -14,7 +14,7 @@ export const HeroCards = () => {
                   <img
                       src="src/img/Pixel profile extra large.png"
                       alt="About feature"
-                      className="object-cover object-center mx-auto mb-2"
+                      className="object-cover object-center mx-auto mb-2 snes-image"
                   />
 
                   <CardDescription className="text-center">
