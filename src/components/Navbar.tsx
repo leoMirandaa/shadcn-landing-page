@@ -14,6 +14,7 @@ import {
 
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import {getRandomSnesButtonColor} from "./utilities/snesRandomColors";
 
 interface RouteProps {
   href: string;
@@ -33,18 +34,6 @@ const routeList: RouteProps[] = [
     href: "#certifications",
     label: "Certifications",
   },
-];
-
-const snesButtonColors = [
-  'has-plumber-color',
-  'has-sunshine-color',
-  'has-ocean-color',
-  'has-turquoise-color',
-  'has-phantom-color',
-  'has-rose-color',
-  'has-galaxy-color',
-  'has-ember-color',
-  ''
 ];
 
 export const Navbar = () => {
@@ -87,13 +76,13 @@ export const Navbar = () => {
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-8 mt-4">
-                  {routeList.map(({ href, label }, index) => (
+                  {routeList.map(({ href, label }) => (
                     <a
                       rel="noreferrer noopener"
                       key={label}
                       href={href}
                       onClick={() => setIsOpen(false)}
-                      className={`snes-button p-1k ${snesButtonColors[index % snesButtonColors.length]}`}
+                      className={`p-1 ${getRandomSnesButtonColor()}`}
                     >
                       {label}
                     </a>

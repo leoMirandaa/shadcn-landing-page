@@ -8,6 +8,7 @@ import {
 import whistleblower from "../img/Whistleblower.jpg";
 import wachenheim from "../img/Wachenheim.jpeg";
 import kinderkunstschule from "../img/Kinderkunstschule.jpeg";
+import {getRandomSnesButtonColor} from "./utilities/snesRandomColors";
 
 interface FeatureProps {
   title: string;
@@ -44,19 +45,6 @@ const projects: FeatureProps[] = [
   },
 ];
 
-const classNames = [
-  'text-ember-color',
-  'text-galaxy-color',
-  'text-rose-color',
-  'text-phantom-color',
-  'text-turquoise-color',
-  'text-ocean-color',
-  'text-sunshine-color',
-  'text-plumber-color',
-  'text-nature-color',
-  ''
-];
-
 export const Projects = () => {
   return (
       <section
@@ -70,7 +58,7 @@ export const Projects = () => {
           A few projects I have done.
         </h3>
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map(({ title, description, image, link, linkName }, index) => (
+          {projects.map(({ title, description, image, link, linkName }) => (
               <Card key={title}>
                 <CardHeader>
                   <CardTitle>{title}</CardTitle>
@@ -90,7 +78,7 @@ export const Projects = () => {
                       rel="noreferrer noopener"
                       href={link}
                       target="_blank"
-                      className={`snes-link ${classNames[index % classNames.length]}`}
+                      className={`p-1 truncate ${getRandomSnesButtonColor()}`}
                   >
                     {linkName}
                   </a>

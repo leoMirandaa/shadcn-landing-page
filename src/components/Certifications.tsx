@@ -7,6 +7,7 @@ import {
 import image1 from "../img/Certification-Responsive-Web-Design.jpg";
 import image2 from "../img/Frontend certification Torsten Jamin.jpeg";
 import image3 from "../img/Low-Code Academy Certifacation.png";
+import {getRandomSnesButtonColor} from "./utilities/snesRandomColors";
 
 interface FeatureProps {
   title: string;
@@ -20,14 +21,14 @@ const certifications: FeatureProps[] = [
     title: "Responsive Web Design",
     image: image1,
     link: "https://www.freecodecamp.org/",
-    linkName: "from freecodecamp.org",
+    linkName: "go to",
   },
 
   {
     title: "Frrontend Certification",
     image: image2,
     link: "https://www.freecodecamp.org/",
-    linkName: "from freecodecamp.org",
+    linkName: "go to",
   },
 
   {
@@ -37,19 +38,6 @@ const certifications: FeatureProps[] = [
     linkName: "from Plant an App Low-Code Academy",
   },
 
-];
-
-const classNames = [
-  'text-ember-color',
-  'text-galaxy-color',
-  'text-rose-color',
-  'text-phantom-color',
-  'text-turquoise-color',
-  'text-ocean-color',
-  'text-sunshine-color',
-  'text-plumber-color',
-  'text-nature-color',
-  ''
 ];
 
 export const Certifications = () => {
@@ -65,7 +53,7 @@ export const Certifications = () => {
           Here are some of my certifications
         </h3>
         <div className="grid md:grid-cols-2 gap-8 text-center">
-          {certifications.map(({title, image, link, linkName}, index ) => (
+          {certifications.map(({title, image, link, linkName}) => (
               <Card key={title}>
                 <CardHeader>
                   <CardTitle>{title}</CardTitle>
@@ -83,7 +71,7 @@ export const Certifications = () => {
                       rel="noreferrer noopener"
                       href={link}
                       target="_blank"
-                      className={`snes-link text-wrap ${classNames[index % classNames.length]}`}
+                      className={`p-1 truncate ${getRandomSnesButtonColor()}`}
                   >
                     {linkName}
                   </a>
