@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { getAllPosts, formatPostDate } from '@/lib/blog';
 import { localPages } from '@/lib/local-pages';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, OG_IMAGE } from '@/lib/constants';
 
 const title = 'Blog sobre desenvolvimento de software — Zenbit, Teresina (PI)';
 const description =
@@ -44,7 +44,9 @@ export function Blog() {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={`${SITE_URL}/blog`} />
-        <meta property="og:image" content={`${SITE_URL}/logo.png`} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

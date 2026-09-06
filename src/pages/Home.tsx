@@ -10,7 +10,7 @@ import { FAQ } from '@/components/FAQ';
 import { BlogPreview } from '@/components/BlogPreview';
 import { CtaSection } from '@/components/CtaSection';
 import { Footer } from '@/components/Footer';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, OG_IMAGE, LOGO_IMAGE } from '@/lib/constants';
 import { faqList } from '@/lib/faq-data';
 
 const Hero = lazy(() => import('@/components/Hero'));
@@ -25,8 +25,8 @@ const localBusinessJsonLd = {
   '@id': `${SITE_URL}/#business`,
   name: 'Zenbit Softhouse',
   url: SITE_URL,
-  image: `${SITE_URL}/logo.png`,
-  logo: `${SITE_URL}/logo.png`,
+  image: OG_IMAGE,
+  logo: LOGO_IMAGE,
   telephone: '+55 86 99420-1843',
   email: 'contato@zenbit.com.br',
   priceRange: '$$',
@@ -64,7 +64,9 @@ export function Home() {
         <meta property="og:title" content={PAGE_TITLE} />
         <meta property="og:description" content={PAGE_DESCRIPTION} />
         <meta property="og:url" content={SITE_URL + '/'} />
-        <meta property="og:image" content={`${SITE_URL}/logo.png`} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(localBusinessJsonLd)}</script>

@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer';
 import { FAQ } from '@/components/FAQ';
 import { CtaSection } from '@/components/CtaSection';
 import { ScrollToTop } from '@/components/ScrollToTop';
-import { SITE_URL, WHATSAPP_URL } from '@/lib/constants';
+import { SITE_URL, WHATSAPP_URL, OG_IMAGE } from '@/lib/constants';
 import {
   getLocalPageBySlug,
   getLocalPagesInCity,
@@ -50,7 +50,7 @@ export function LocalLanding() {
         '@id': `${pageUrl}#business`,
         name: 'Zenbit Softhouse',
         url: pageUrl,
-        image: `${SITE_URL}/logo.png`,
+        image: OG_IMAGE,
         telephone: '+55 86 99420-1843',
         email: 'contato@zenbit.com.br',
         priceRange: '$$',
@@ -110,7 +110,9 @@ export function LocalLanding() {
         <meta property="og:title" content={page.title} />
         <meta property="og:description" content={page.description} />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={`${SITE_URL}/logo.png`} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="pt_BR" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

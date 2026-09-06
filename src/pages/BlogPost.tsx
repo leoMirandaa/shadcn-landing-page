@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { getPostBySlug, getRelatedPosts, formatPostDate } from '@/lib/blog';
 import { getLocalPagesInCity, MAIN_CITY } from '@/lib/local-pages';
-import { SITE_URL, WHATSAPP_URL } from '@/lib/constants';
+import { SITE_URL, WHATSAPP_URL, OG_IMAGE, LOGO_IMAGE } from '@/lib/constants';
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -41,12 +41,12 @@ export function BlogPost() {
         dateModified: post.date,
         inLanguage: 'pt-BR',
         articleSection: post.category,
-        image: `${SITE_URL}/logo.png`,
+        image: OG_IMAGE,
         author: { '@type': 'Organization', name: 'Zenbit Softhouse' },
         publisher: {
           '@type': 'Organization',
           name: 'Zenbit Softhouse',
-          logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+          logo: { '@type': 'ImageObject', url: LOGO_IMAGE },
         },
         mainEntityOfPage: postUrl,
       },
@@ -71,7 +71,9 @@ export function BlogPost() {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={postUrl} />
-        <meta property="og:image" content={`${SITE_URL}/logo.png`} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:section" content={post.category} />
