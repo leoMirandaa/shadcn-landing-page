@@ -57,3 +57,9 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Deploy
+
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=leoMirandaa%2Fshadcn-landing-page)
+
+The template builds to static files (`npm run build` outputs `dist/`), so it can be hosted on Wasmer Edge. The button imports this public repository; to customize the site, import your own copy or fork instead.
