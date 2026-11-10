@@ -3,354 +3,384 @@ export type Lang = "he" | "en";
 export const REGISTER_URL = "https://app.ansora.io/register/sb";
 export const SITE_URL = "https://ansora.io";
 
+/** A heading split into lines; each entry renders on its own line. */
+type Lines = string[];
+
 export type Content = {
   meta: { title: string; description: string };
-  nav: { what: string; meet: string; why: string; price: string; other: string; otherHref: string; skip: string };
-  ctaEnter: string;
-  ctaWork: string;
-  hero: { small: string; big: string; lead: string; priceLine: string; heroAlt: string; videoTitle: string };
-  what: {
-    eyebrow: string;
-    title: string;
-    cards: string[];
-    stay: { title: string; items: string[]; text: string };
-    brings: { title: string; items: string[]; text: string };
+  nav: {
+    skip: string;
+    /** Section tabs in the top bar, in page order. `id` is the section's anchor. */
+    tabs: { id: string; label: string }[];
+    /** The highlighted tab that jumps to the launch offer. */
+    launch: string;
+    other: string;
+    otherHref: string;
   };
-  team: {
+  hero: {
     eyebrow: string;
-    title: string;
-    imageAlt: string;
-    text: string;
-    priceLabel: string;
-    tag: string;
-    priceUnit: string;
+    /** Rendered as three lines: line1 / line2 + <em>{em}</em> / line3. */
+    title: { line1: string; line2: string; em: string; line3: string };
+    lead: Lines;
+    detail: string;
+    cta: string;
+    note: { before: string; strong: string; after: string };
+    /** Caption beside the animated logo. */
+    caption: { kicker: string; title: Lines; tags: string };
   };
-  meet: { eyebrow: string; title: string; demoAlt: string };
-  why: {
+  intro: { eyebrow: string; title: Lines; text: string; strong: string; after: string };
+  work: {
     eyebrow: string;
-    title: string;
+    title: Lines;
     lead: string;
-    wantTitle: string;
-    wants: string[];
-    needTitle: string;
-    needs: string[];
-    closing: string;
+    items: { label: string; title: string; text: string }[];
+    end: string;
   };
-  intuition: string;
-  science: {
+  knowledge: {
+    eyebrow: string;
+    title: Lines;
+    paragraphs: string[];
+    tags: string[];
+    expLabel: string;
+    years: string;
+    yearsText: Lines;
+    expTitle: string;
+    expText: string;
+    expNote: string;
+  };
+  personal: {
     eyebrow: string;
     title: string;
-    text: string;
-    items: string[];
-    meaningTitle: string;
-    meaningLead: string;
-    meaningItems: string[];
-    meaningText: string;
+    titleEm: string;
+    paragraphs: string[];
+    flowLabel: string;
+    steps: { title: string; text: string }[];
+    bottom: string;
   };
-  learns: {
+  launch: {
     eyebrow: string;
-    title: string;
-    cardTitle: string;
-    text: string;
-    needsLead: string;
-    needs: string[];
-    afterTitle: string;
-    afterItems: string[];
-    afterText: string;
+    title: Lines;
+    lead: string;
+    pill: string;
+    amount: string;
+    currency: string;
+    perMonth: string;
+    description: Lines;
+    cta: string;
+    kicker: string;
+    items: { title: string; text: string; value?: string }[];
   };
-  journey: {
-    eyebrow: string;
-    title: string;
-    text: string;
-    guideTitle: string;
-    guideLead: string;
-    guideItems: string[];
-  };
-  daily: {
-    eyebrow: string;
-    title: string;
-    imageAlt: string;
-    intro: string;
-    stepsLead: string;
-    steps: string[];
-    outro: string;
-  };
-  /** Items for the "what else is in Ansora" accordion. The section is hidden while empty. */
-  more: { title: string; body: string }[];
-  moreEyebrow: string;
-  moreTitle: string;
-  final: { title: string; priceLine: string };
-  footer: string;
+  faq: { eyebrow: string; title: Lines; items: { q: string; a: string }[] };
+  closing: { kicker: string; title: Lines; cta: string };
+  footer: { tagline: string };
 };
 
 const he: Content = {
   meta: {
     title: "אנסורה – גם לעסק קטן מגיע מוח עסקי של עסק גדול",
     description:
-      "אנסורה היא צוות שעובד עבור העסק שלכם: יועצת עסקית, מנהלת שיווק, כותבת תוכן ומעצבת, מתוך אותו ידע ואותה אסטרטגיה. מחיר השקה: 247 שקלים בחודש.",
+      "הידע, החשיבה והעשייה של צוות שיווק, בתוכנה אחת שלומדת את העסק שלכם: אסטרטגיה, מסעות לקוח, תוכן, עיצוב ותוכנית עבודה. מחיר השקה: 247 ₪ לחודש + מע״מ.",
   },
   nav: {
-    what: "מה היא עושה",
-    meet: "הכירו אותה",
-    why: "למה בכלל",
-    price: "הכירו את הצוות",
+    skip: "דילוג לתוכן",
+    tabs: [
+      { id: "intro", label: "למה אנסורה" },
+      { id: "work", label: "מה אנסורה עושה" },
+      { id: "knowledge", label: "הידע שמאחוריה" },
+      { id: "personal", label: "איך זה עובד" },
+      { id: "faq", label: "שאלות נפוצות" },
+    ],
+    launch: "מבצע ההשקה",
     other: "English",
     otherHref: "/en/",
-    skip: "דלגו לתוכן",
   },
-  ctaEnter: "אני רוצה להיכנס לאנסורה",
-  ctaWork: "אני רוצה שאנסורה תעבוד בשבילי",
   hero: {
-    small: "גם לעסק קטן מגיע",
-    big: "מוח עסקי של עסק גדול",
-    lead: "בלי אופק עסקי ברור ובלי כניסה קבועה של לקוחות, זה לא נשאר רק בעסק. אנחנו כבעלים לא ישנים בלילה, מתקשים לחשוב קדימה, העסק לא צומח והמוטיבציה נשחקת.",
-    priceLine: "מחיר ההשקה: 247 שקלים בחודש",
-    heroAlt: "",
-    videoTitle: "הסבר על אנסורה",
-  },
-  what: {
-    eyebrow: "01 · מה היא עושה",
-    title: "אנסורה נבנתה כדי לקחת על עצמה חלק גדול מהחשיבה ומהעבודה הזאת",
-    cards: ["מכירה את העסק שלכם", "מפצחת את ערך הלקוח", "בונה את מסע הלקוח", "ומייצרת איתכם תוכן שיווקי שמביא לקוחות"],
-    stay: {
-      title: "אתם עדיין צריכים להיות שם",
-      items: ["לכוון.", "לאשר.", "לתקן כשצריך.", "להביא את הידע המקצועי שלכם."],
-      text: "אבל אתם לא צריכים להיות היועצים האסטרטגיים, מנהלי השיווק, כותבי התוכן והמעצבים של עצמכם.",
-    },
-    brings: {
-      title: "אנסורה מביאה את הרעיונות",
-      items: ["מנסחת אותם.", "מעצבת.", "ומעלה."],
-      text: "אתם חוזרים להיות בעלי מקצוע בתחומכם ובעלי עסק בתחומכם. אתם צריכים לדעת להפעיל את אנסורה.",
+    eyebrow: "אסטרטגיה ושיווק לעסקים קטנים",
+    title: { line1: "גם לעסק קטן", line2: "מגיע ", em: "מוח עסקי", line3: "של עסק גדול." },
+    lead: ["הידע, החשיבה והעשייה של צוות שיווק.", "בתוכנה אחת שלומדת את העסק שלכם."],
+    detail:
+      "אנסורה מגבשת אסטרטגיה, בונה מסעות לקוח, כותבת ומעצבת תוכן ומחברת הכול לתוכנית עבודה. בהתאמה לעסק. בקול שלכם.",
+    cta: "אני רוצה להכיר את אנסורה",
+    note: { before: "מחיר השקה: ", strong: "247 ₪ לחודש", after: " + מע״מ" },
+    caption: {
+      kicker: "העסק שלכם. הסגנון שלכם.",
+      title: ["חשיבה מקצועית.", "עשייה יומיומית."],
+      tags: "אסטרטגיה · מסע לקוח · תוכן · עיצוב",
     },
   },
-  team: {
-    eyebrow: "02 · הצוות",
-    title: "אנסורה היא צוות שעובד עבור העסק שלכם",
-    imageAlt: "יועצת עסקית, מנהלת שיווק, כותבת תוכן ומעצבת",
-    text: "כולן עובדות מתוך אותו ידע על העסק, אותה אסטרטגיה, אותו מסע לקוח, אותם יעדים, ובאותו מקום. בלי לתאם בין כמה ספקים, בלי להסביר את העסק מחדש בכל פעם, בלי להתחיל כל משימה מדף ריק ובעיקר - בלי שיעשו עבורכם \"מה שכולם עושים\".",
-    priceLabel: "מחיר ההשקה",
-    tag: "לבעלי עסקים קטנים",
-    priceUnit: "שקלים בחודש",
+  intro: {
+    eyebrow: "01 / מקום לצמוח",
+    title: ["מה שעוד לא למדתם בשיווק,", "כבר לא צריך לעצור את העסק."],
+    text: "אתם יודעים לעשות את העבודה שלכם. אבל כדי להביא לקוחות, צריך גם להבין מה מניע אותם, איך לבנות אמון ומה לומר בכל שלב. ואז למצוא זמן לכתוב, לעצב ולהתמיד.",
+    strong: "אנסורה מביאה את הידע הזה אל העסק והופכת אותו לעבודה שמתבצעת.",
+    after: " אתם מביאים את המומחיות, מכוונים ומאשרים. היא מחברת בין ההיכרות איתכם לבין מה שהשיווק שלכם צריך לעשות.",
   },
-  meet: { eyebrow: "03 · הכירו אותה", title: "בואו להכיר אותה קצת", demoAlt: "הדגמה של מסכי אנסורה" },
-  why: {
-    eyebrow: "04 · למה",
-    title: "אז למה בכלל צריך דבר כזה?",
-    lead: "כי להביא לקוחות נהיה קשה יותר. יש פחות כסף זמין בחלקים גדולים של השוק, יש הרבה עסקים שמתחרים על אותו כסף והלקוחות רוצים לא רק לבדוק ולהשוות.",
-    wantTitle: "מה הלקוחות רוצים",
-    wants: ["להכיר, ולהבין שזה מתאים להם בול", "לבנות אמון", "לראות עסק שנוכח באופן קבוע"],
-    needTitle: "מה צריך כדי להביא לקוח למעמד המכירה",
-    needs: [
-      "להבין למה הוא יבחר דווקא בכם",
-      "לדעת מה בדיוק להגיד לו",
-      "לדעת איפה לפגוש אותו",
-      "לדעת מה הוא צריך לראות בכל שלב",
-      "להוביל אותו מסקרנות ראשונית ועד לרגע שבו הוא מוכן לקנות",
-    ],
-    closing: "ולכן קמפיינים עובדים פחות טוב בשנים האחרונות. זה נקרא \"מסע לקוח\", אבל אנחנו במסע יחד איתו.",
-  },
-  intuition: "אנסורה לא עובדת על \"נראה לי\"",
-  science: {
-    eyebrow: "05 · הידע שמאחורי",
-    title: "שיווק הוא מקצוע שמבוסס על מדעי ההתנהגות",
-    text: "יש מודלים, עקרונות, תיאוריה, לוגיקה, ויש הבנה עמוקה של התנהגות אנושית. אנסורה לא מחליטה מה לעשות לפי תחושת בטן, לפי טרנד רגעי או לפי מה שכולם עושים עכשיו. היא עובדת מתוך מסגרת מקצועית מסודרת, ונשענת על:",
+  work: {
+    eyebrow: "02 / מהחשיבה לעשייה",
+    title: ["צוות של יכולות.", "כיוון אחד: העסק שלכם."],
+    lead: "העבודה שהייתם מצפים לראות מצוות שיווק, בצורה מותאמת באמת לאסטרטגיה ולקול הייחודי שלכם ובלי לשלם ולנהל ספקים.",
     items: [
-      "ידע במדעי ההתנהגות",
-      "מודלים של קבלת החלטות",
-      "לוגיקה של ערך לקוח",
-      "עקרונות של מסע לקוח",
-      "מערכת שלמה של סוכנים שמתמחים בחלקים שונים של החשיבה והשיווק",
+      {
+        label: "אסטרטגיה",
+        title: "מחדדת למה הלקוחות יבחרו דווקא בכם",
+        text: "אנסורה לומדת את העסק, מבררת מה חשוב ללקוחות ומגבשת את הערך שיש לכם להציע להם.",
+      },
+      {
+        label: "מסע לקוח",
+        title: "מחברת בין היכרות ראשונה לפנייה לעסק",
+        text: "היא ממפה את השלבים בדרך לקנייה ומציעה את המסרים והפעולות המתאימים לכל שלב.",
+      },
+      {
+        label: "תוכן ועיצוב",
+        title: "הופכת את החשיבה לתוכן שאפשר לפרסם",
+        text: "רעיונות, ניסוח ועיצוב לרשתות החברתיות, מתוך האסטרטגיה של העסק ובסגנון האישי שלכם.",
+      },
+      {
+        label: "תוכנית עבודה",
+        title: "עוזרת לדעת מה עושים היום",
+        text: "תוכנית מעשית שמחברת את הפעולות השוטפות למטרות העסק ועוזרת להתמיד גם בתוך יום עמוס.",
+      },
     ],
-    meaningTitle: "המשמעות",
-    meaningLead: "לא כל רעיון הוא מבחינתה רעיון טוב.",
-    meaningItems: ["לא כל פוסט צריך להיכתב.", "לא כל ערוץ מתאים לכל עסק.", "ולא כל מסר נכון לכל לקוח."],
-    meaningText:
-      "אנסורה אמורה לדעת לשאול למה, לבדוק מה התפקיד של הפעולה בתוך התוכנית, ולהכווין אתכם מתוך ידע מקצועי ולא מתוך ניחוש.",
+    end: "הבחירות השיווקיות נבנות סביב הלקוחות, המטרות והאופי של העסק שלכם. יש לכם מקום לבחור דרך שמתאימה לכם.",
   },
-  learns: {
-    eyebrow: "06 · ההתחלה",
-    title: "והיא גם לומדת את העסק שלכם",
-    cardTitle: "כן, בהתחלה אנחנו קצת חופרים לכם",
-    text: "אנסורה היא מערכת אסטרטגיה ושיווק שנבנתה במיוחד עבור בעלי עסקים קטנים, והיא לא יכולה לעשות עבודה טובה בלי להכיר את העסק. אנחנו מרגישים עם זה די בנוח.",
-    needsLead: "אנסורה צריכה לדעת:",
-    needs: [
-      "מה אתם מוכרים ולמי",
-      "מה חשוב ללקוחות שלכם",
-      "מה הם אומרים",
-      "מה גורם להם לקנות",
-      "אילו מוצרים יש לכם",
-      "איך אתם רוצים להיתפס",
-      "איזה תוכן מתאים לכם ואיזה תוכן אתם אוהבים",
-      "ומה אתם מנסים להשיג",
+  knowledge: {
+    eyebrow: "03 / מקצועיות בתוך הטכנולוגיה",
+    title: ["מאחורי כל פעולה,", "יש חשיבה עסקית."],
+    paragraphs: [
+      "אנסורה נשענת על ידע עסקי מעמיק ועל שיטות המבוססות על מדעי ההתנהגות: איך אנשים מקבלים החלטות, מה יוצר עבורם ערך ואיך נבנה אמון לאורך מסע הלקוח.",
+      "הידע הזה מכוון את התוכנה בבחירת המסרים, הרעיונות והפעולות שמתאימים לעסק שלכם.",
     ],
-    afterTitle: "אחר כך היא ממשיכה ללמוד",
-    afterItems: ["עוד מידע נכנס לזיכרון העסק.", "עוד החלטות מצטברות.", "עוד תוכן נוצר.", "עוד תגובות מתקבלות."],
-    afterText: "וככל שאנסורה מכירה את העסק טוב יותר, היא יכולה לחשוב טוב יותר עבורו.",
+    tags: ["ערך לקוח", "קבלת החלטות", "בניית אמון", "מסע לקוח"],
+    expLabel: "הניסיון שמאחורי השיטה",
+    years: "20+",
+    yearsText: ["שנות ניסיון בייעוץ,", "ניהול וצמיחה עסקית"],
+    expTitle: "ידע ושיטות שכבר תרמו לצמיחה במאות מיליוני שקלים.",
+    expText:
+      "הבסיס המקצועי של אנסורה נשען על הניסיון של אלון בייעוץ עסקי וארגוני, בניהול ובשיווק, ועל השכלתו במדעי ההתנהגות ובסוציולוגיה של ארגונים.",
+    expNote: "היקף הצמיחה מתייחס לניסיון המצטבר בעבודה עם עסקים, שעליו נשענות השיטות.",
   },
-  journey: {
-    eyebrow: "07 · המסע",
-    title: "מה אנסורה עושה עם כל הידע הזה?",
-    text: "המטרה שלה היא להבין יחד איתכם מה צריך לגרום ללקוח להגיע למעמד המכירה כליד אורגני נכנס. לא רק לראות אתכם, לקרוא פוסט, לעשות לייק... אלא לעבור תהליך שבו הוא מכיר אתכם, מבין מה אתם עושים, מזהה שהפתרון מתאים לו, בונה אמון ובסוף פונה.",
-    guideTitle: "אנסורה בונה את המסע, ואז מכוונת אתכם",
-    guideLead: "אחרי שהמסע נבנה, היא מכוונת אתכם למה שצריך לעשות:",
-    guideItems: ["באיזה שלב", "באיזו תדירות", "באיזה מסר", "ובאיזה פורמט"],
-  },
-  daily: {
-    eyebrow: "08 · בית המלאכה",
-    title: "איך נראה היום יום באנסורה?",
-    imageAlt: "בית המלאכה של אנסורה",
-    intro:
-      "אתם לא פותחים כל בוקר דף ריק ושואלים מה תעלו היום. אנסורה כבר מכירה את העסק, את הקהלים, את מסע הלקוח ומה אתם מנסים להשיג.",
-    stepsLead: "אתם נכנסים לבית המלאכה:",
+  personal: {
+    eyebrow: "04 / היכרות שעושה את ההבדל",
+    title: "לומדת את העסק.",
+    titleEm: "מכירה את הקול שלכם.",
+    paragraphs: [
+      "מה אתם מוכרים, למי, במה אתם טובים ואיך אתם אוהבים להתבטא. ההיכרות הזאת היא נקודת המוצא לעבודה של אנסורה.",
+      "ככל שאתם משתפים אותה בעוד מידע, דוגמאות והעדפות, נבנית תמונה עשירה יותר של העסק ושל הסגנון האישי שלכם. כך התוכן יכול להישמע כמוכם, והעשייה יכולה להתאים לכם.",
+    ],
+    flowLabel: "מהשיחה אל העבודה",
     steps: [
-      "רואים מה אפשר לעשות.",
-      "בוחרים משימה, או מבקשים ממנה לחשוב איתכם - אנסורה מביאה רעיון.",
-      "אתם מכוונים - היא מפתחת, מנסחת, מעצבת.",
-      "ואתם מאשרים.",
+      { title: "מספרים לה על העסק", text: "על הלקוחות, ההצעה שלכם, המטרות והסגנון." },
+      { title: "מקבלים כיוון ותוכנית", text: "ערך לקוח, מסעות לקוח ופעולות שאפשר להתחיל לבצע." },
+      { title: "יוצרים, מדייקים ומתקדמים", text: "אנסורה מציעה, כותבת ומעצבת. אתם מכוונים ומאשרים." },
     ],
-    outro: "כך השיווק הופך מעוד משימה שבעל העסק צריך לזכור לעשות, לעבודה שוטפת שמתבצעת מתוך תוכנית.",
+    bottom: "הכול מתחיל בשיחה על העסק שלכם.",
   },
-  more: [],
-  moreEyebrow: "09 · מה עוד",
-  moreTitle: "מה עוד יש באנסורה",
-  final: { title: "גם לעסק קטן מגיע מוח עסקי של עסק גדול", priceLine: "מחיר ההשקה: 247 שקלים בחודש" },
-  footer: "מוח עסקי לעסקים קטנים",
+  launch: {
+    eyebrow: "05 / יוצאים לדרך יחד",
+    title: ["תוכנה שעובדת איתכם.", "ליווי שעוזר להתחיל."],
+    lead: "לכבוד ההשקה, מצטרפים לאנסורה עם הדרכה וליווי אישי.",
+    pill: "מחיר השקה",
+    amount: "247",
+    currency: "₪",
+    perMonth: "לחודש + מע״מ",
+    description: ["אסטרטגיה ושיווק לעסק שלכם,", "עם ליווי אישי בתחילת הדרך."],
+    cta: "אני רוצה להצטרף לאנסורה",
+    kicker: "כל אלה כלולים במבצע ההשקה",
+    items: [
+      {
+        title: "שימוש באנסורה",
+        text: "חשיבה אסטרטגית, מסעות לקוח, תוכן, עיצוב ותוכנית עבודה בהתאמה לעסק ולסגנון שלכם.",
+      },
+      { title: "הדרכה חיה בזום", text: "מכירים את המערכת יחד, בזמן אמת, ולומדים איך לעבוד איתה ביום יום." },
+      {
+        title: "3 פגישות ליווי אישיות",
+        text: "פיצוח ויישום עם יועץ בעל יותר מ־20 שנות ניסיון.",
+        value: "בשווי 2,700 ₪ + מע״מ",
+      },
+    ],
+  },
+  faq: {
+    eyebrow: "לפני שמתחילים",
+    title: ["כמה דברים", "שכדאי לדעת."],
+    items: [
+      {
+        q: "צריך לדעת שיווק כדי לעבוד עם אנסורה?",
+        a: "אנסורה נבנתה כדי להביא את הידע העסקי והשיווקי לתוך העבודה שלכם. אתם משתפים במה שאתם יודעים על העסק, והיא עוזרת לגבש כיוון ולהפוך אותו לתוכן ולפעולות. הדרכת הזום והפגישות האישיות נועדו לעזור בהתחלה.",
+      },
+      {
+        q: "מה נשאר לי לעשות?",
+        a: "להביא את הידע המקצועי שלכם, לשתף במה שקורה בעסק, לבחור, לכוון ולאשר את התוצרים. אנסורה מבצעת חלק גדול מהחשיבה והיצירה, וההיכרות שלכם עם העסק ממשיכה להיות חשובה.",
+      },
+      {
+        q: "איך התוכן מקבל את הסגנון שלי?",
+        a: "משתפים את אנסורה בדוגמאות, בהעדפות ובמידע על העסק. ההכוונה שלכם עוזרת לה לדייק את השפה ואת התוכן לפי האופי האישי והמקצועי שלכם.",
+      },
+      {
+        q: "מה כוללת הטבת ההשקה?",
+        a: "מחיר השקה של 247 ₪ לחודש בתוספת מע״מ, הדרכה חיה בזום ושלוש פגישות ליווי אישיות לפיצוח וליישום, בשווי 2,700 ₪ בתוספת מע״מ.",
+      },
+    ],
+  },
+  closing: {
+    kicker: "את הידע המקצועי שלכם כבר יש לכם.",
+    title: ["עכשיו תנו לעסק", "גם מוח עסקי."],
+    cta: "בואו להכיר את אנסורה",
+  },
+  footer: { tagline: "אסטרטגיה ושיווק לעסקים קטנים" },
 };
 
 const en: Content = {
   meta: {
     title: "Ansora – Even a small business deserves the business brain of a big one",
     description:
-      "Ansora is a team that works for your business: a business consultant, a marketing manager, a content writer and a designer, all from the same knowledge and the same strategy. Launch price: 247 NIS a month.",
+      "The knowledge, thinking and execution of a marketing team, in one piece of software that learns your business: strategy, customer journeys, content, design and a work plan. Launch price: 247 NIS a month + VAT.",
   },
-  nav: { what: "What she does", meet: "Meet her", why: "Why", price: "Price", other: "עברית", otherHref: "/", skip: "Skip to content" },
-  ctaEnter: "I want to get into Ansora",
-  ctaWork: "I want Ansora to work for me",
+  nav: {
+    skip: "Skip to content",
+    tabs: [
+      { id: "intro", label: "Why Ansora" },
+      { id: "work", label: "What Ansora does" },
+      { id: "knowledge", label: "The knowledge behind it" },
+      { id: "personal", label: "How it works" },
+      { id: "faq", label: "FAQ" },
+    ],
+    launch: "Launch offer",
+    other: "עברית",
+    otherHref: "/",
+  },
   hero: {
-    small: "Even a small business deserves",
-    big: "the business brain of a big one",
-    lead: "Without a clear business horizon and a steady flow of customers, it doesn't stay only in the business. As owners we lose sleep, struggle to think ahead, the business doesn't grow and motivation wears down.",
-    priceLine: "Launch price: 247 NIS a month",
-    heroAlt: "",
-    videoTitle: "About Ansora",
-  },
-  what: {
-    eyebrow: "01 · What she does",
-    title: "Ansora was built to take on a big part of this thinking and work",
-    cards: [
-      "She knows your business",
-      "She cracks your customer value",
-      "She builds your customer journey",
-      "And creates, with you, marketing content that brings customers",
-    ],
-    stay: {
-      title: "You still need to be there",
-      items: ["To steer.", "To approve.", "To correct when needed.", "To bring your professional knowledge."],
-      text: "But you don't need to be your own strategic consultants, marketing managers, content writers and designers.",
-    },
-    brings: {
-      title: "Ansora brings the ideas",
-      items: ["She words them.", "Designs them.", "And publishes them."],
-      text: "You go back to being a professional in your field and a business owner in your field. You just need to know how to operate Ansora.",
+    eyebrow: "Strategy and marketing for small businesses",
+    title: { line1: "Even a small business", line2: "deserves ", em: "the business brain", line3: "of a big one." },
+    lead: ["The knowledge, thinking and execution of a marketing team.", "In one piece of software that learns your business."],
+    detail:
+      "Ansora shapes your strategy, builds customer journeys, writes and designs content, and ties it all into a work plan. Fitted to your business. In your voice.",
+    cta: "I want to get to know Ansora",
+    note: { before: "Launch price: ", strong: "247 NIS a month", after: " + VAT" },
+    caption: {
+      kicker: "Your business. Your style.",
+      title: ["Professional thinking.", "Everyday execution."],
+      tags: "Strategy · Customer journey · Content · Design",
     },
   },
-  team: {
-    eyebrow: "02 · The team",
-    title: "Ansora is a team that works for your business",
-    imageAlt: "A business consultant, a marketing manager, a content writer and a designer",
-    text: "They all work from the same knowledge of the business, the same strategy, the same customer journey, the same goals, and in the same place. No coordinating between several vendors, no explaining your business from scratch every time, no starting every task from a blank page, and above all, no one doing \"what everybody does\" for you.",
-    priceLabel: "Launch price",
-    tag: "For small business owners",
-    priceUnit: "NIS a month",
+  intro: {
+    eyebrow: "01 / Room to grow",
+    title: ["What you haven't learned about marketing yet", "no longer has to hold your business back."],
+    text: "You know how to do your work. But bringing in customers also means understanding what drives them, how to build trust and what to say at every stage. And then finding the time to write, design and keep at it.",
+    strong: "Ansora brings that knowledge into your business and turns it into work that gets done.",
+    after: " You bring the expertise, steer and approve. She connects what she learns about you with what your marketing needs to do.",
   },
-  meet: { eyebrow: "03 · Meet her", title: "Let's get to know her a little", demoAlt: "A demo of Ansora's screens" },
-  why: {
-    eyebrow: "04 · Why",
-    title: "So why does anyone need this?",
-    lead: "Because bringing in customers is getting harder. There is less money available in large parts of the market, many businesses compete for the same money, and customers want to do more than just check and compare.",
-    wantTitle: "What customers want",
-    wants: ["To get to know you, and see that it fits them exactly", "To build trust", "To see a business that is consistently present"],
-    needTitle: "What it takes to bring a customer to the sale",
-    needs: [
-      "Understand why they would choose you in particular",
-      "Know exactly what to tell them",
-      "Know where to meet them",
-      "Know what they need to see at every stage",
-      "Lead them from first curiosity to the moment they are ready to buy",
-    ],
-    closing: "That is why campaigns have worked less well in recent years. It's called a \"customer journey\", but we are on the journey with them.",
-  },
-  intuition: "And Ansora doesn't work on \"I think so\"",
-  science: {
-    eyebrow: "05 · The knowledge behind it",
-    title: "Marketing is a profession built on behavioral science",
-    text: "There are models, principles, theory, logic, and a deep understanding of human behavior. Ansora doesn't decide what to do by gut feeling, by a passing trend, or by what everyone is doing right now. She works from an organized professional framework, and relies on:",
+  work: {
+    eyebrow: "02 / From thinking to doing",
+    title: ["A team of capabilities.", "One direction: your business."],
+    lead: "The work you would expect from a marketing team, truly fitted to your strategy and your unique voice, without paying for and managing suppliers.",
     items: [
-      "Knowledge of behavioral science",
-      "Decision-making models",
-      "The logic of customer value",
-      "Customer-journey principles",
-      "A whole system of agents, each specializing in a different part of thinking and marketing",
+      {
+        label: "Strategy",
+        title: "Sharpens why customers should choose you",
+        text: "Ansora learns your business, finds out what matters to your customers and shapes the value you have to offer them.",
+      },
+      {
+        label: "Customer journey",
+        title: "Connects a first encounter to a customer reaching out",
+        text: "She maps the stages on the way to a purchase and suggests the right messages and actions for each one.",
+      },
+      {
+        label: "Content & design",
+        title: "Turns the thinking into content you can publish",
+        text: "Ideas, copy and design for social media, built on your business strategy and in your personal style.",
+      },
+      {
+        label: "Work plan",
+        title: "Helps you know what to do today",
+        text: "A practical plan that ties day-to-day actions to your business goals and helps you keep going, even on a busy day.",
+      },
     ],
-    meaningTitle: "What it means",
-    meaningLead: "Not every idea is a good idea, as far as she's concerned.",
-    meaningItems: ["Not every post needs to be written.", "Not every channel suits every business.", "And not every message is right for every customer."],
-    meaningText:
-      "Ansora is meant to know how to ask why, to check what role an action plays within the plan, and to guide you from professional knowledge rather than guesswork.",
+    end: "Your marketing choices are built around your customers, your goals and the character of your business. There is room to choose the path that suits you.",
   },
-  learns: {
-    eyebrow: "06 · The start",
-    title: "And she learns your business too",
-    cardTitle: "Yes, at first we ask you a lot of questions",
-    text: "Ansora is a strategy and marketing system built specifically for small business owners, and she can't do a good job without knowing the business. We're pretty comfortable with that.",
-    needsLead: "Ansora needs to know:",
-    needs: [
-      "What you sell, and to whom",
-      "What matters to your customers",
-      "What they say",
-      "What makes them buy",
-      "What products you have",
-      "How you want to be perceived",
-      "What content suits you, and what content you like",
-      "And what you are trying to achieve",
+  knowledge: {
+    eyebrow: "03 / Expertise built into the technology",
+    title: ["Behind every action,", "there is business thinking."],
+    paragraphs: [
+      "Ansora rests on deep business knowledge and on methods grounded in behavioral science: how people make decisions, what creates value for them and how trust is built along the customer journey.",
+      "That knowledge guides the software in choosing the messages, ideas and actions that fit your business.",
     ],
-    afterTitle: "Then she keeps learning",
-    afterItems: [
-      "More information enters the business memory.",
-      "More decisions accumulate.",
-      "More content is created.",
-      "More responses come in.",
+    tags: ["Customer value", "Decision making", "Building trust", "Customer journey"],
+    expLabel: "The experience behind the method",
+    years: "20+",
+    yearsText: ["years of experience in consulting,", "management and business growth"],
+    expTitle: "Knowledge and methods that have already contributed to hundreds of millions of shekels in growth.",
+    expText:
+      "Ansora's professional foundation rests on Alon's experience in business and organizational consulting, management and marketing, and on his education in behavioral science and the sociology of organizations.",
+    expNote: "The growth figure refers to the cumulative experience of working with businesses, on which the methods are based.",
+  },
+  personal: {
+    eyebrow: "04 / Getting to know you makes the difference",
+    title: "Learns your business.",
+    titleEm: "Knows your voice.",
+    paragraphs: [
+      "What you sell, to whom, what you're good at and how you like to express yourself. That understanding is where Ansora's work begins.",
+      "The more information, examples and preferences you share, the richer the picture of your business and your personal style becomes. That way the content can sound like you, and the work can fit you.",
     ],
-    afterText: "And the better Ansora knows the business, the better she can think for it.",
-  },
-  journey: {
-    eyebrow: "07 · The journey",
-    title: "What does Ansora do with all this knowledge?",
-    text: "Her goal is to work out with you what should lead a customer to the sale as an inbound organic lead. Not just seeing you, reading a post, giving a like... but going through a process in which they get to know you, understand what you do, recognize that the solution fits them, build trust, and finally reach out.",
-    guideTitle: "Ansora builds the journey, then guides you",
-    guideLead: "Once the journey is built, she guides you on what to do:",
-    guideItems: ["At which stage", "How often", "With which message", "And in which format"],
-  },
-  daily: {
-    eyebrow: "08 · The workshop",
-    title: "What does a day with Ansora look like?",
-    imageAlt: "Ansora's workshop",
-    intro:
-      "You don't open a blank page every morning and ask what to post today. Ansora already knows the business, the audiences, the customer journey and what you are trying to achieve.",
-    stepsLead: "You enter the workshop:",
+    flowLabel: "From the conversation to the work",
     steps: [
-      "See what can be done.",
-      "Pick a task, or ask her to think with you - Ansora brings an idea.",
-      "You steer - she develops, words and designs.",
-      "And you approve.",
+      { title: "Tell her about your business", text: "Your customers, your offer, your goals and your style." },
+      { title: "Get a direction and a plan", text: "Customer value, customer journeys and actions you can start on." },
+      { title: "Create, refine and move forward", text: "Ansora suggests, writes and designs. You steer and approve." },
     ],
-    outro: "That is how marketing turns from one more task the owner has to remember into ongoing work that follows a plan.",
+    bottom: "It all starts with a conversation about your business.",
   },
-  more: [],
-  moreEyebrow: "09 · More",
-  moreTitle: "What else is in Ansora",
-  final: { title: "Even a small business deserves the business brain of a big one", priceLine: "Launch price: 247 NIS a month" },
-  footer: "A business brain for small businesses",
+  launch: {
+    eyebrow: "05 / Setting out together",
+    title: ["Software that works with you.", "Guidance that helps you start."],
+    lead: "To celebrate the launch, you join Ansora with training and personal guidance.",
+    pill: "Launch price",
+    amount: "247",
+    currency: "₪",
+    perMonth: "a month + VAT",
+    description: ["Strategy and marketing for your business,", "with personal guidance at the start."],
+    cta: "I want to join Ansora",
+    kicker: "All of this is included in the launch offer",
+    items: [
+      {
+        title: "Using Ansora",
+        text: "Strategic thinking, customer journeys, content, design and a work plan, fitted to your business and your style.",
+      },
+      { title: "Live training on Zoom", text: "Get to know the system together, in real time, and learn how to work with it day to day." },
+      {
+        title: "3 personal guidance sessions",
+        text: "Cracking it and putting it into practice with a consultant with more than 20 years of experience.",
+        value: "Worth 2,700 NIS + VAT",
+      },
+    ],
+  },
+  faq: {
+    eyebrow: "Before you start",
+    title: ["A few things", "worth knowing."],
+    items: [
+      {
+        q: "Do I need to know marketing to work with Ansora?",
+        a: "Ansora was built to bring business and marketing knowledge into your work. You share what you know about your business, and she helps shape a direction and turn it into content and actions. The Zoom training and the personal sessions are there to help you get started.",
+      },
+      {
+        q: "What's left for me to do?",
+        a: "Bring your professional knowledge, share what is happening in the business, choose, steer and approve the output. Ansora does a large part of the thinking and creating, and your understanding of the business stays important.",
+      },
+      {
+        q: "How does the content get my style?",
+        a: "Share examples, preferences and information about your business with Ansora. Your guidance helps her fine-tune the language and the content to your personal and professional character.",
+      },
+      {
+        q: "What does the launch offer include?",
+        a: "A launch price of 247 NIS a month plus VAT, live training on Zoom and three personal guidance sessions to crack it and put it into practice, worth 2,700 NIS plus VAT.",
+      },
+    ],
+  },
+  closing: {
+    kicker: "You already have the professional knowledge.",
+    title: ["Now give your business", "a business brain too."],
+    cta: "Come meet Ansora",
+  },
+  footer: { tagline: "Strategy and marketing for small businesses" },
 };
 
 export const CONTENT: Record<Lang, Content> = { he, en };
