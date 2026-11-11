@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- lang/dir and everything between the seo markers are rewritten per language
+     by scripts/prerender.mjs (dist/index.html = Hebrew, dist/en/index.html =
+     English). What's here is only what `npm run dev` serves. -->
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#196CE6" />
+  <link rel="icon" type="image/png" href="/logo_no_background.png" />
+
+  <!-- Sends a visitor to their language before anything paints. Priority: a
+       choice made in the language switcher (localStorage, see rememberLang in
+       src/lib/i18n.ts), then ?lang=he|en for campaign links, then — only for a
+       first visit to the Hebrew page — English when neither the browser locale
+       nor the timezone is Israeli (either one alone is enough to keep Hebrew:
+       many Israelis run their phone in English, and travellers keep a Hebrew
+       locale abroad). Crawlers and link-preview bots are never redirected, so
+       both versions stay indexable at their own URLs. -->
+  <script>
+    (function () {
+      try {
+        var onEn = /^\/old\/en(\/|$)/.test(location.pathname);
+        var q = new URLSearchParams(location.search);
+        var want = null;
+        try { want = localStorage.getItem("ansora_landing_lang"); } catch (e) {}
+        if (want !== "he" && want !== "en") want = q.get("lang");
+        if (want !== "he" && want !== "en") {
+          want = null;
+          var bot = /bot|crawl|spider|slurp|facebookexternalhit|whatsapp|linkedin|embedly|preview|lighthouse|headless/i;
+          if (!onEn && !bot.test(navigator.userAgent)) {
+            var locales = (navigator.languages || []).concat(navigator.language || "");
+            var he = locales.some(function (l) {
+              l = String(l).toLowerCase();
+              return l.indexOf("he") === 0 || l.indexOf("iw") === 0;
+            });
+            var il = false;
+            try { il = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Jerusalem"; } catch (e) {}
+            if (!he && !il) want = "en";
+          }
+        }
+        if (!want || (want === "en") === onEn) return;
+        q.delete("lang");
+        var qs = q.toString();
+        location.replace((want === "en" ? "/old/en/" : "/old/") + (qs ? "?" + qs : "") + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Umami analytics (self-hosted at landing-umami.vercel.app). -->
+  <script defer src="https://landing-umami.vercel.app/script.js"
+    data-website-id="cc7b19db-5873-46cd-9c0a-66bc9de64e56"></script>
+
+  <!--seo-->
+  <title>Ansora, אסטרטגיה ושיווק לעסקים קטנים, מהנייד</title>
+  <!--/seo-->
+
+  <!-- Google Fonts. preconnect to both hosts because the CSS file and the
+       font files it references come from different origins, and the second
+       connection is only discovered after the first stylesheet parses. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Inter: the frontend's brand sans (frontend/app/layout.tsx).
+       Heebo: its Hebrew counterpart, since Inter ships no Hebrew glyphs. -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

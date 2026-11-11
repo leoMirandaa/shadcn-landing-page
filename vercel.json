@@ -1,0 +1,29 @@
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/irit-art",
+      "destination": "https://irit-art.vercel.app/irit-art/"
+    },
+    {
+      "source": "/irit-art/(.*)",
+      "destination": "https://irit-art.vercel.app/irit-art/$1"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/landing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/landing.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

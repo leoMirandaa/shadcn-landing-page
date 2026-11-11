@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   Ansora brand theme — mirrors frontend/app/globals.css.
+   Brand hue 214 (logo blue): --brand rgb(25 108 230) === hsl(214 80% 50%).
+   Kept as HSL triplets here because the shadcn primitives in src/components/ui
+   are all written as hsl(var(--token)); the rgb() triplets below are the exact
+   same colors, exposed under the frontend's own names so markup copied from
+   /frontend keeps working verbatim.
+   ========================================================================= */
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 214 80% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 214 95% 93%;
+    --accent-foreground: 214 90% 38%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 80% 50%;
+    --radius: 0.75rem;
+
+    /* frontend/globals.css parity */
+    --brand: 25 108 230;
+    --brand2: 51 120 233;
+    --brand-dark: 10 65 182;
+    --whatsapp: 37 211 102;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 44% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 44% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 214 85% 60%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 214 60% 20%;
+    --accent-foreground: 214 95% 88%;
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 214 85% 60%;
+
+    --brand: 96 165 250;
+    --brand2: 129 180 255;
+    --brand-dark: 37 99 235;
+    --whatsapp: 37 211 102;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ============================================================================
+   Ansora landing — global chrome, background and the motion system.
+
+   Every scroll animation on this page is CSS plus one IntersectionObserver
+   (src/lib/motion.ts). Deliberately no animation library: the whole motion
+   vocabulary below costs ~4KB of CSS, where framer-motion would add ~110KB of
+   JS to a page whose entire job is to load fast on an Israeli phone on 4G.
+   ========================================================================= */
+
+html {
+  scroll-behavior: smooth;
+  /* The sticky navbar (h-16) plus breathing room, so an anchor jump doesn't
+     land the section title underneath the bar. */
+  scroll-padding-top: 5.5rem;
+}
+
+/* --- Fonts ----------------------------------------------------------------
+   Inter is the frontend's brand sans (frontend/app/layout.tsx) but ships no
+   Hebrew glyphs, so a Hebrew page in Inter silently falls back to whatever
+   the OS picks — Arial/Tahoma on Windows, which looks nothing like the app.
+   Heebo is listed second: Latin text hits Inter first, Hebrew text falls
+   through to Heebo, and the two share enough of a skeleton to read as one
+   typeface. Lora/Space Mono kept to match the frontend's serif/mono roles. */
+:root {
+  --font-sans: "Inter", "Heebo", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Lora", ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Hebrew sets Heebo first — inside an all-Hebrew paragraph Inter contributes
+   nothing but the digits, and Heebo's own digits are better matched to it. */
+[dir="rtl"] {
+  --font-sans: "Heebo", "Inter", ui-sans-serif, system-ui, "Segoe UI", Arial, sans-serif;
+}
+
+/* --- Page background: the frontend's gradient + mesh pattern -------------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 12% -8%, hsl(var(--primary) / 0.14), transparent 60%),
+    radial-gradient(50rem 38rem at 92% 4%, hsl(214 90% 60% / 0.12), transparent 62%),
+    radial-gradient(46rem 40rem at 50% 108%, hsl(160 70% 50% / 0.09), transparent 60%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
+  -webkit-mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.dark body::after {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+}
+
+/* --- Glass surfaces (frontend DESIGN_SYSTEM.md section 1) ----------------- */
+.glass {
+  background: hsl(var(--card) / 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.8);
+}
+
+.glass-strong {
+  background: hsl(var(--card) / 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--border) / 0.8);
+}
+
+.card-premium {
+  border-radius: 28px;
+  background: hsl(var(--card) / 0.88);
+  border: 1px solid hsl(var(--border) / 0.7);
+  box-shadow: 0 12px 40px -18px rgba(2, 6, 23, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    rgb(var(--brand-dark)),
+    rgb(var(--brand)) 45%,
+    rgb(var(--brand2))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================================
+   MOTION SYSTEM
+   ========================================================================= */
+
+/* --- Scroll reveal --------------------------------------------------------
+   useReveal() adds .is-visible once the element crosses the viewport. The
+   element stays laid out in both states, so only opacity/transform move and
+   nothing here can shift the page and cause layout shift. */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-up { transform: translate3d(0, 28px, 0); }
+.reveal-down { transform: translate3d(0, -22px, 0); }
+.reveal-scale { transform: scale(0.94); }
+.reveal-blur { transform: translate3d(0, 20px, 0); filter: blur(10px); }
+.reveal-tilt { transform: perspective(1200px) rotateX(9deg) translate3d(0, 40px, 0); }
+
+/* Directional reveals are written against the *reading* direction, so a card
+   that flies in from the start edge does so from the right in Hebrew and from
+   the left in English without either layout needing its own class. */
+.reveal-start { transform: translate3d(-32px, 0, 0); }
+.reveal-end { transform: translate3d(32px, 0, 0); }
+[dir="rtl"] .reveal-start { transform: translate3d(32px, 0, 0); }
+[dir="rtl"] .reveal-end { transform: translate3d(-32px, 0, 0); }
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* --- Ambient loops -------------------------------------------------------- */
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -22px, 0); }
+}
+
+@keyframes aurora {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  33% { transform: translate3d(4%, -3%, 0) scale(1.1); opacity: 0.8; }
+  66% { transform: translate3d(-3%, 3%, 0) scale(0.95); opacity: 0.6; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+}
+
+@keyframes shimmer {
+  from { transform: translate3d(-120%, 0, 0) rotate(18deg); }
+  to { transform: translate3d(320%, 0, 0) rotate(18deg); }
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.92); }
+  60% { opacity: 1; transform: translate3d(0, 0, 0) scale(1.03); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.28; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+@keyframes marquee-start {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes ring-pulse {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.animate-float { animation: float-slow 7s ease-in-out infinite; }
+.animate-float-slower { animation: float-slower 9s ease-in-out infinite; }
+.animate-aurora { animation: aurora 18s ease-in-out infinite; }
+.animate-pop-in { animation: pop-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-ring-pulse { animation: ring-pulse 2.4s ease-out infinite; }
+
+/* The screenshot's glare sweep. Lives on an overlay inside the mockup frame,
+   which is what positions and clips it. */
+.animate-shimmer { animation: shimmer 5.5s ease-in-out 1.2s infinite; }
+
+.typing-dot { animation: typing-dot 1.3s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.18s; }
+.typing-dot:nth-child(3) { animation-delay: 0.36s; }
+
+/* Logo strip. Duplicated content plus -50% travel gives a seamless loop; the
+   direction flips in RTL so the strip always drifts against the reading
+   direction rather than racing along with it. */
+.marquee-track { animation: marquee-start 32s linear infinite; }
+[dir="rtl"] .marquee-track { animation-direction: reverse; }
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* --- Segmented-control pill ----------------------------------------------
+   The sliding indicator behind a two-option toggle (language, monthly/annual).
+   translateX is a physical direction, so a control whose options follow the
+   reading order needs the travel negated in RTL; doing that here lets the
+   buttons themselves stay in natural DOM order instead of being pinned to
+   dir="ltr", which put the first option on the wrong side for Hebrew. Set
+   --pill-i to the selected index. */
+.pill-indicator {
+  transform: translateX(calc(var(--pill-i, 0) * 100%));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[dir="rtl"] .pill-indicator {
+  transform: translateX(calc(var(--pill-i, 0) * -100%));
+}
+
+/* --- Hover motion --------------------------------------------------------- */
+.lift {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+.lift:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 22px 50px -24px rgba(2, 6, 23, 0.4);
+}
+
+/* --- Scroll-driven progress bar under the navbar -------------------------- */
+.scroll-progress {
+  transform-origin: left center;
+  transition: transform 0.12s linear;
+}
+[dir="rtl"] .scroll-progress { transform-origin: right center; }
+
+/* --- Reduced motion (WCAG 2.3.3) ------------------------------------------
+   Matches frontend/app/globals.css. Reveals must be forced fully visible, not
+   merely instant: an element left at opacity:0 because its observer never
+   fired would be permanently invisible rather than just un-animated. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+# Local-dev content + uploads (production uses Vercel Blob)
+/data
+/public/uploads
