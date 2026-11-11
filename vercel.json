@@ -6,16 +6,12 @@
   "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/irit-art/",
+      "source": "/irit-art",
       "destination": "https://irit-art.vercel.app/irit-art/"
     },
     {
-      "source": "/irit-art/:path*/",
-      "destination": "https://irit-art.vercel.app/irit-art/:path*/"
-    },
-    {
-      "source": "/irit-art/:path*",
-      "destination": "https://irit-art.vercel.app/irit-art/:path*"
+      "source": "/irit-art/(.*)",
+      "destination": "https://irit-art.vercel.app/irit-art/$1"
     }
   ],
   "redirects": [
