@@ -5,11 +5,29 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "rewrites": [
-    { "source": "/irit-art", "destination": "https://irit-art.vercel.app/irit-art/" },
-    { "source": "/irit-art/:path*", "destination": "https://irit-art.vercel.app/irit-art/:path*" }
+    {
+      "source": "/irit-art/",
+      "destination": "https://irit-art.vercel.app/irit-art/"
+    },
+    {
+      "source": "/irit-art/:path*/",
+      "destination": "https://irit-art.vercel.app/irit-art/:path*/"
+    },
+    {
+      "source": "/irit-art/:path*",
+      "destination": "https://irit-art.vercel.app/irit-art/:path*"
+    }
   ],
   "redirects": [
-    { "source": "/landing", "destination": "/", "permanent": true },
-    { "source": "/landing.html", "destination": "/", "permanent": true }
+    {
+      "source": "/landing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/landing.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
