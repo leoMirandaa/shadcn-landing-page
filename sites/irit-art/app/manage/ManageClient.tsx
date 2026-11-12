@@ -24,7 +24,7 @@ async function upload(file: File): Promise<Pick<Artwork, "id" | "src" | "w" | "h
   const form = new FormData();
   form.set("file", new File([blob], "art.jpg", { type: "image/jpeg" }));
   const res = await fetch(`${BASE}/api/manage/upload/`, { method: "POST", body: form });
-  if (!res.ok) throw new Error(`upload ${res.status}`);
+  if (!res.ok) throw new Error(((await res.json().catch(() => null)) as { error?: string } | null)?.error || `upload ${res.status}`);
   const { id, src } = await res.json();
   return { id, src, w, h };
 }
@@ -32,7 +32,8 @@ async function upload(file: File): Promise<Pick<Artwork, "id" | "src" | "w" | "h
 const FIELDS: { key: keyof Profile; label: string; hint?: string; ltr?: boolean }[] = [
   { key: "name", label: "שם" },
   { key: "tagline", label: "כותרת משנה (מתחת ללוגו)" },
-  { key: "heroLine", label: "משפט פתיחה" },
+  { key: "heroLine", label: "משפט פתיחה (כותרת ראשית)" },
+  { key: "heroSub", label: "משפט תומך מתחת לכותרת" },
   { key: "whatsapp", label: "וואטסאפ (עם קידומת מדינה)", hint: "972501234567", ltr: true },
   { key: "phone", label: "טלפון", ltr: true },
   { key: "instagram", label: "אינסטגרם (שם משתמש)", ltr: true },
@@ -81,8 +82,8 @@ export function ManageClient({ initial }: { initial: SiteContent }) {
       }
       setGallery((g) => [...g, ...added]);
       touch();
-    } catch {
-      setStatus({ kind: "err", text: "ההעלאה נכשלה, נסי שוב" });
+    } catch (e) {
+      setStatus({ kind: "err", text: `ההעלאה נכשלה: ${e instanceof Error ? e.message : "שגיאה"}` });
     } finally {
       setBusy(false);
       if (addInput.current) addInput.current.value = "";
@@ -97,8 +98,8 @@ export function ManageClient({ initial }: { initial: SiteContent }) {
     try {
       const { src, w, h } = await upload(files[0]);
       patch(id, { src, w, h });
-    } catch {
-      setStatus({ kind: "err", text: "ההעלאה נכשלה, נסי שוב" });
+    } catch (e) {
+      setStatus({ kind: "err", text: `ההעלאה נכשלה: ${e instanceof Error ? e.message : "שגיאה"}` });
     } finally {
       setBusy(false);
       if (replaceInput.current) replaceInput.current.value = "";
@@ -113,8 +114,8 @@ export function ManageClient({ initial }: { initial: SiteContent }) {
       const { src } = await upload(files[0]);
       setProfile((p) => ({ ...p, photo: src }));
       touch();
-    } catch {
-      setStatus({ kind: "err", text: "ההעלאה נכשלה, נסי שוב" });
+    } catch (e) {
+      setStatus({ kind: "err", text: `ההעלאה נכשלה: ${e instanceof Error ? e.message : "שגיאה"}` });
     } finally {
       setBusy(false);
       if (photoInput.current) photoInput.current.value = "";
@@ -133,8 +134,8 @@ export function ManageClient({ initial }: { initial: SiteContent }) {
       if (!res.ok) throw new Error(String(res.status));
       setDirty(false);
       setStatus({ kind: "ok", text: "נשמר ✓ האתר עודכן" });
-    } catch {
-      setStatus({ kind: "err", text: "השמירה נכשלה, נסי שוב" });
+    } catch (e) {
+      setStatus({ kind: "err", text: `השמירה נכשלה: ${e instanceof Error ? e.message : "שגיאה"}` });
     } finally {
       setBusy(false);
     }
@@ -172,6 +173,10 @@ export function ManageClient({ initial }: { initial: SiteContent }) {
             </div>
             <input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => replacePhoto(e.target.files)} />
           </div>
+          <label className="wide">
+            סיפור אמיתי (מוצג כהוכחה)
+            <textarea style={{ minHeight: 90 }} value={profile.story} onChange={(e) => (setProfile({ ...profile, story: e.target.value }), touch())} />
+          </label>
           <label className="wide">
             אודות (פסקה חדשה = שורה ריקה)
             <textarea value={profile.about} onChange={(e) => (setProfile({ ...profile, about: e.target.value }), touch())} />

@@ -8,8 +8,8 @@ const heebo = Heebo({ subsets: ["hebrew", "latin"], weight: ["300", "400", "500"
 const frank = Frank_Ruhl_Libre({ subsets: ["hebrew", "latin"], weight: ["300", "400", "500", "700"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "אירית אברהמוב | פשר החלומות בציור",
-  description: "גלריית ציורים של אירית אברהמוב — חלומות שהופכים לצבע.",
+  title: "אירית אברהמוב | ציורי כוונה אישית",
+  description: "ציורי כוונה אישית — ציור שנבחר מתוך שיחה, בדיוק בשבילך. אירית אברהמוב.",
   icons: { icon: "/logo.png" },
 };
 

@@ -10,6 +10,8 @@ export type Profile = {
   name: string;
   tagline: string;
   heroLine: string;
+  heroSub: string; // supporting sentence under the hero line
+  story: string; // the real client story shown as proof
   about: string; // paragraphs separated by blank lines
   whatsapp: string; // digits incl. country code, e.g. 972501234567
   phone: string;
@@ -25,10 +27,13 @@ export type SiteContent = { profile: Profile; gallery: Artwork[] };
 export const defaultContent: SiteContent = {
   profile: {
     name: "אירית אברהמוב",
-    tagline: "פשר החלומות בציור",
-    heroLine: "כל חלום מחכה לצבע שלו",
+    tagline: "ציורי כוונה אישית",
+    heroLine: "ציור שנבחר מתוך שיחה — בדיוק בשבילך",
+    heroSub: "אירית לא מוכרת ציור מקטלוג. היא מקשיבה למה שאת רוצה לזמן לחיים שלך, ורק אז בוחרת איתך את הציור שמכוון אליו.",
+    story:
+      "לקוחה שבעלה לא היה בקו הבריאות קנתה ציור של סוס דוהר. אחרי שהציור נכנס לבית, בעלה הרגיש הרבה יותר טוב.",
     about:
-      "אני אירית, אמנית שמציירת חלומות.\n\nכל ציור מתחיל ברגע שקט, בין שינה להתעוררות, שבו תמונות ורגשות עולים מעצמם. אני אוספת אותם ונותנת להם צבע, צורה ומקום על הבד.\n\nהציורים שלי הם הזמנה להתבונן פנימה, לפענח ולהרגיש — ואולי למצוא בהם משהו מהחלום שלכם.",
+      "אני אירית, אמנית שמציירת חלומות.\n\nאני מאמינה שציור שנבחר נכון יכול לעורר בנו תהליך פנימי. את השיטה שלי בניתי מתוך חיבור בין פשר חלומות יהודי לפשר חלומות פרוידיאני, ומתוך שנים של שיחות עם נשים שהתמודדו עם כאב, חוסר אונים וגעגוע למשהו שעוד לא הגיע.\n\nכל מפגש מתחיל בשיחה — ורק מתוכה אנחנו בוחרות יחד את הציור שלך.",
     whatsapp: "",
     phone: "054-3453931",
     instagram: "",
@@ -60,6 +65,8 @@ export function sanitizeContent(raw: unknown): SiteContent {
     name: str(p.name, 80) || defaultContent.profile.name,
     tagline: str(p.tagline, 120),
     heroLine: str(p.heroLine, 160),
+    heroSub: str(p.heroSub, 400),
+    story: str(p.story, 800),
     about: str(p.about, 5000),
     whatsapp: str(p.whatsapp, 20).replace(/\D/g, ""),
     phone: str(p.phone, 30),

@@ -1,21 +1,18 @@
 /**
- * Design tokens for the whole site. Change the purple here (or pass a different
- * object) and every surface, glow and gradient re-derives from it — the CSS only
- * ever reads these as custom properties (see app/layout.tsx).
+ * Design tokens for the whole site. Change a value here and every surface re-derives
+ * from it — the CSS only reads these as custom properties (see app/layout.tsx).
  *
- * `bg` is sampled from the artist's logo background.
+ * Palette is taken from the artist's logo (brown + antique gold) on plain beige.
  */
 export const theme = {
-  bg: "#361d46", // base purple — keep in sync with the logo
-  bgDeep: "#1f0f2c", // darkest edge of the vignette
-  bgLift: "#5a2f74", // lighter dream-haze
-  text: "#f7effc",
-  muted: "#cdb8dd",
-  gold: "#e3b25c", // the hamsa's gold
-  glowA: "#e0559a", // pink splash
-  glowB: "#4fc3d9", // teal splash
-  glowC: "#f2c94c", // yellow splash
-  glowD: "#8e5bd6", // violet
+  bg: "#f1e7d6", // plain beige page background
+  surface: "#fbf6ec", // cards / inputs
+  text: "#3a2e22", // dark brown body text
+  muted: "#7b6a57",
+  accent: "#6b5238", // buttons, strong brown from the logo type
+  gold: "#a9854e", // ornaments, highlights (from the logo's gold)
+  line: "#d9c9ae", // borders
+  overlay: "#2a2118", // lightbox backdrop
 } as const;
 
 export type Theme = typeof theme;

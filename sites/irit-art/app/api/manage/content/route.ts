@@ -14,7 +14,12 @@ export async function PUT(request: Request) {
     return Response.json({ error: "bad json" }, { status: 400 });
   }
   const content = sanitizeContent(raw);
-  await saveContent(content);
+  try {
+    await saveContent(content);
+  } catch (e) {
+    console.error("save failed", e);
+    return Response.json({ error: e instanceof Error ? e.message : "save failed" }, { status: 500 });
+  }
   revalidatePath("/");
   return Response.json(content);
 }

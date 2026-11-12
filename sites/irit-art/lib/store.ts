@@ -9,6 +9,13 @@ import { defaultContent, sanitizeContent, type SiteContent } from "./content";
  * uploaded images live in Vercel Blob; otherwise (local dev) they live on disk.
  */
 const useBlob = !!process.env.BLOB_READ_WRITE_TOKEN;
+
+/** On Vercel the disk is read-only, so saving without a Blob store can never work — say so clearly. */
+function assertWritable() {
+  if (!useBlob && process.env.VERCEL) {
+    throw new Error("Blob storage is not connected: BLOB_READ_WRITE_TOKEN is missing (connect a Blob store to this Vercel project and redeploy)");
+  }
+}
 const CONTENT_BLOB = "irit-art/content.json";
 const dataFile = path.join(process.cwd(), "data", "content.json");
 
@@ -28,6 +35,7 @@ export async function getContent(): Promise<SiteContent> {
 }
 
 export async function saveContent(content: SiteContent): Promise<void> {
+  assertWritable();
   const body = JSON.stringify(content, null, 2);
   if (useBlob) {
     await put(CONTENT_BLOB, body, {
@@ -44,6 +52,7 @@ export async function saveContent(content: SiteContent): Promise<void> {
 
 /** Stores an image and returns the `src` to keep in the gallery. */
 export async function saveImage(id: string, bytes: Buffer, contentType: string): Promise<string> {
+  assertWritable();
   const ext = contentType === "image/png" ? "png" : contentType === "image/webp" ? "webp" : "jpg";
   if (useBlob) {
     const blob = await put(`irit-art/art/${id}.${ext}`, bytes, {
